@@ -3,9 +3,7 @@
     width: 8rem;
     border-radius: 2rem;
 }
-a{
-    text-decoration: none;
-}
+
 .navbar-row{
     background-color: #5A794F;
 }
@@ -14,20 +12,4 @@ li{
  list-style: none;
  display: inline;
  color:black;
-}
-
-.nav-li{
-    
-    width: 20rem;
-    height: 10rem;
-    margin: 1rem;
-    padding: .5rem;
-    font-size: 1.4rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border-radius: 2rem;
-    background-color: white;
-}
-.nav-li:hover{
-    border-color:  #eab5a4;
 }

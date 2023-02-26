@@ -3,19 +3,22 @@
     float: right;
 }
 
-.nav-b{
-    width: 14rem;
-    height: 3rem;
-    padding: .7rem;
-    margin-top: .3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    font-size: 1.4rem;
+ul li:hover {
+    background-color: #ecd8d1;
+}
+
+.nav-li {
+    list-style-type: none;
+    display: inline;
+    width: 20rem;
+    height: 10rem;
+    margin: 1rem;
+    padding: .5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border-radius: 2rem;
     background-color: white;
-    color: black;
-}
-.nav-b:hover{
-
-    background-color:#ecd8d1;
+    /* color: #627753;
+    -webkit-text-stroke: 0.5px #eab5a4; */
+    text-decoration: none;
 }

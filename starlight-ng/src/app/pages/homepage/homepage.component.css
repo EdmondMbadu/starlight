@@ -1,8 +1,4 @@
-
-a{
-    text-decoration: none;
-}
-
+/* MAIN SECTION */
 .main-image{
     float: right;
     margin: 0rem 3rem;
@@ -27,20 +23,11 @@ a{
     -webkit-text-stroke: 1px #eab5a4;
    
 }
-.main-b{
-    
-    width: 14rem;
-    height: 3rem;
-    margin: 3rem 10rem;
-    font-size: 1.4rem;
-    color:white;
-    background-color: #5A794F;
-    border-radius: 2rem;
-}
-.main-b:hover{
-    background-color: #304829;
 
+app-greenbtn {
+    margin: 10rem;
 }
+
 .main-vid{
 
     margin-top: 10rem ;
@@ -49,6 +36,8 @@ a{
     align-items: center;
     width: 50%;
 }
+
+/* ABOUT US SECTION */
 .about-h{
     margin: 5rem;
     color: #627753;

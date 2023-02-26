@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavelementsComponent } from './components/navelements/navelements.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
 
 const routes: Routes = [
   {
@@ -16,8 +18,16 @@ const routes: Routes = [
     outlet: "navelements",
   },
   {
+    path: 'registration',
+    component: RegistrationComponent,
+  },
+  {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'recovery',
+    component: RecoveryComponent,
   },
   // {
   //   path: '',

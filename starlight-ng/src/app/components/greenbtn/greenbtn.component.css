@@ -1,13 +1,16 @@
-button {
-    
-    width: 14rem;
-    height: 3rem;
-    /* margin: 3rem 10rem; */
-    font-size: 1.4rem;
-    color:white;
-    background-color: #5A794F;
+.green-btn {
+    width: 40rem;
+    height: 10rem;
+    margin-bottom: 4rem;
+    padding: .5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border-radius: 2rem;
+    color: white;
+    -webkit-text-stroke: 0.5px #eab5a4;
+    background-color: #5a794f;
 }
-button:hover{
+
+.green-btn:hover{
     background-color: #304829;
 }

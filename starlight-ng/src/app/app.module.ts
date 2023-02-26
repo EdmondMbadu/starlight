@@ -7,6 +7,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavelementsComponent } from './components/navelements/navelements.component';
 import { GreenbtnComponent } from './components/greenbtn/greenbtn.component';
+// import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { GreenbtnComponent } from './components/greenbtn/greenbtn.component';
     LoginComponent,
     HomepageComponent,
     NavelementsComponent,
-    GreenbtnComponent
+    GreenbtnComponent,
+    // NavbarComponent,
+    RegistrationComponent,
+    RecoveryComponent
   ],
   imports: [
     BrowserModule,
