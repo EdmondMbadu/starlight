@@ -1,19 +1,26 @@
+/* FORM STYLE */
 input {
     width: 15rem;
     height: 3rem;
     margin: 1rem;
     border: solid;
     border-radius: 4rem;
-    /* font-family: Shanti; */
     font-size: 1.3em;
+}
+
+.last-input {
+    margin-bottom: 3rem;
+}
+
+.small-link {
+    /* margin-top: 1rem; */
+    color: #868282;
+    font-size: smaller;
+    text-decoration: underline;
 }
 
 ::placeholder {
     text-align: center;
-}
-
-app-greenbtn {
-    padding-bottom: 35rem;
 }
 
 h1 {
@@ -22,7 +29,6 @@ h1 {
     text-align: center;
     color: #627753;
     -webkit-text-stroke: 0.5px #eab5a4;
-    font-family: sans-serif;
 }
 
 .form-div {

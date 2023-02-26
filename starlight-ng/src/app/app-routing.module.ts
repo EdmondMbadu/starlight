@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { NavelementsComponent } from './components/navelements/navelements.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 
@@ -11,11 +10,6 @@ const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
-  },
-  {
-    path: '',
-    component: NavelementsComponent,
-    outlet: "navelements",
   },
   {
     path: 'registration',

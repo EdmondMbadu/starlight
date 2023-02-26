@@ -26,7 +26,10 @@ h1 {
     text-align: center;
     color: #627753;
     -webkit-text-stroke: 0.5px #eab5a4;
-    font-family: sans-serif;
+}
+
+.last-input {
+    margin-bottom: 3rem;
 }
 
 .form-div {
