@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import GreenbtnComponent from './greenbtn.component';
+import { GreenbtnComponent } from './greenbtn.component';
 
 describe('GreenbtnComponent', () => {
   let component: GreenbtnComponent;
