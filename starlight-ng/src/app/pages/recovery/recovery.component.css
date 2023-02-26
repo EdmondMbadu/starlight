@@ -1,32 +1,13 @@
 input {
-    width: 20rem;
-    height: 3rem;
-    /* margin-bottom: 3rem; */
-    /* margin: 1rem; */
-    padding-left: 1rem;
-    border: solid;
-    border-radius: 4rem;
-    font-size: 1.3em;
+    width: 22rem;
+}
+
+app-greenbtn {
+    margin-left: 8rem;
 }
 
 .last-input {
     margin-bottom: 3rem;
-}
-
-.small-link {
-    /* margin-top: 1rem; */
-    color: #868282;
-    font-size: smaller;
-    text-decoration: underline;
-    text-align: center;
-}
-
-::placeholder {
-    text-align: center;
-}
-
-app-greenbtn {
-    padding-bottom: 35rem;
 }
 
 h1 {
@@ -37,20 +18,9 @@ h1 {
     -webkit-text-stroke: 0.5px #eab5a4;
 }
 
-.form-div {
-    display: grid;
-    place-content: center;
-}
-
 #email-form {
-    /* float: center; */
-    border: solid;
-    border-color: #5A794F;
-    border-radius: 2rem;
     width: 25rem;
-    height: 15rem;
-    /* text-align: center; */
+    height: 12rem;
     padding-top: 1rem;
     padding-left: 2rem;
-    /* display: inline-block; */
 }

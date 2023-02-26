@@ -1,23 +1,10 @@
 input {
     width: 15rem;
-    height: 3rem;
     margin: .5rem;
-    border: solid;
-    border-radius: 4rem;
-    /* font-family: Shanti; */
-    font-size: 1.3em;
 }
 
 input#long-input {
     width: 32rem;
-}
-
-::placeholder {
-    text-align: center;
-}
-
-app-greenbtn {
-    padding-bottom: 35rem;
 }
 
 h1 {
@@ -32,19 +19,9 @@ h1 {
     margin-bottom: 3rem;
 }
 
-.form-div {
-    display: grid;
-    place-content: center;
-}
-
 #registration-form {
-    /* float: center; */
-    border: solid;
-    border-color: #5A794F;
-    border-radius: 2rem;
     width: 36rem;
     height: 25rem;
     text-align: center;
     padding-top: 2rem;
-    /* display: inline-block; */
 }
