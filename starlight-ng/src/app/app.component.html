@@ -1,6 +1,5 @@
 <html>
   <head>
-
     <title>Starlight</title>
   </head>
   <body>
@@ -9,44 +8,12 @@
         <a href="">
           <img class="nav-logo" src="../assets/img/starlight-logo.svg" alt="">
         </a>
-        <div class="nav-elements"> 
-            <button class="nav-b"> About Us</button>
-      <button class="nav-b"> Log in</button>
-         
-      </div>
-     
+        <router-outlet name="navelements"></router-outlet>
+        
      </nav>
 
     <!-- MAIN SECTION -->
-    <section class="main">
-      <a href="">
-        <img class="main-image"
-        src="../assets/img/steff.jpeg" alt="">
-      </a>
-      <h1 class="main-h">Write your stories</h1>
-      <h2 class="main-h2">Share your writing with the universe <br>
-        and let each post be one its stars</h2>
-
-        <button class="main-b">Get Started</button>
-
-        <div>
-          <a href="">
-            <img  class="main-vid"src="../assets/img/video-starlight.png" alt="">
-          </a>
-        </div>
-
-        <div class="about-us">
-          <h1 class="about-h">About Us</h1>
-          <h3 class="about-h1">This started as class project. Initially we thought about doing a simulation, but our friend Steff was big
-            Into writing and we decided to dedicate the site to her and ourselves to write on our stories. </h3> 
-           <h3 class="about-h1">
-            We believe in the power of community and collaboration, and we encourage you to engage 
-            with us and share your thoughts and ideas. Our goal is to create a space where anyone can connect, 
-            And learn from each other.</h3>
-        </div>
-    
-
-    </section>
+    <router-outlet></router-outlet>
 
     <!-- FOOTER -->
     <section></section>

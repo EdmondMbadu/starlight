@@ -1,0 +1,21 @@
+.nav-elements{
+    margin-top: 1.5rem;
+    float: right;
+}
+
+.nav-b{
+    width: 14rem;
+    height: 3rem;
+    padding: .7rem;
+    margin-top: .3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    border-radius: 2rem;
+    background-color: white;
+    color: black;
+}
+.nav-b:hover{
+
+    background-color:#ecd8d1;
+}

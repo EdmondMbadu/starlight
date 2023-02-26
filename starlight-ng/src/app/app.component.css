@@ -9,11 +9,6 @@ a{
 .navbar-row{
     background-color: #5A794F;
 }
-.nav-elements{
-    margin-top: 1.5rem;
-    float: right;
-
-}
 
 li{
  list-style: none;
@@ -21,22 +16,6 @@ li{
  color:black;
 }
 
-.nav-b{
-    width: 14rem;
-    height: 3rem;
-    padding: .7rem;
-    margin-top: .3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    font-size: 1.4rem;
-    border-radius: 2rem;
-    background-color: white;
-    color: black;
-}
-.nav-b:hover{
-
-    background-color:#ecd8d1;
-}
 .nav-li{
     
     width: 20rem;
@@ -50,69 +29,5 @@ li{
     background-color: white;
 }
 .nav-li:hover{
-    
-
-border-color:  #eab5a4;
-}
-.main-image{
-    float: right;
-    margin: 0rem 3rem;
-    border-radius: 50%;
-    width: 25rem;
-}
-
-.main-h{
-  margin-top: 5rem;
-  margin-left:10rem ;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #627753;
-  -webkit-text-stroke: 1px #eab5a4;
-   
-}
-.main-h2{
-    margin-left: 10rem;
-    font-size: 1.5rem;
-    font-weight: normal;
-    color: #627753;
-  -webkit-text-stroke: 1px #eab5a4;
-   
-}
-.main-b{
-    
-    width: 14rem;
-    height: 3rem;
-    margin: 3rem 10rem;
-    font-size: 1.4rem;
-    color:white;
-    background-color: #5A794F;
-    border-radius: 2rem;
-}
-.main-b:hover{
-    background-color: #304829;
-
-}
-.main-vid{
-
-    margin-top: 10rem ;
-    margin-left: 20rem;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-.about-h{
-    margin: 5rem;
-    color: #627753;
-    -webkit-text-stroke: 1px #eab5a4;
-    text-align: center;
-    font-size: 3rem;
-
-}
-.about-h1{
-    text-align: center;
-    margin: 4rem;
-    font-weight: normal;
-    color: #627753;
-    -webkit-text-stroke: 1px #eab5a4;
-
+    border-color:  #eab5a4;
 }
