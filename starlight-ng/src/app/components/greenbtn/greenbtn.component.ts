@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-greenbtn',
@@ -6,5 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./greenbtn.component.css']
 })
 export class GreenbtnComponent {
-  @Input() buttonName: string = ''
+  @Input() buttonName: string = '';
+  @Output() click = new EventEmitter<MouseEvent>();
+
+  onClickButton(event: MouseEvent) {
+    this.click.emit(event);
+  }
 }

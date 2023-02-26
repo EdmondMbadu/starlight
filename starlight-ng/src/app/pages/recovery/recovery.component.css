@@ -3,7 +3,7 @@ input {
 }
 
 app-greenbtn {
-    margin-left: 8rem;
+    margin: 4rem;
 }
 
 .last-input {
@@ -20,7 +20,7 @@ h1 {
 
 #email-form {
     width: 25rem;
-    height: 12rem;
+    height: 13rem;
     padding-top: 1rem;
     padding-left: 2rem;
 }

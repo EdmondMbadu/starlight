@@ -1,16 +1,14 @@
-.green-btn {
-    width: 40rem;
-    height: 10rem;
-    /* margin-bottom: 4rem; */
-    padding: .5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+button {
+    width: 14rem;
+    height: 3rem;
+    font-size: 1.4rem;
+    border-width: 0rem;
     border-radius: 2rem;
     color: white;
     -webkit-text-stroke: 0.5px #eab5a4;
     background-color: #5a794f;
 }
 
-.green-btn:hover{
+button:hover{
     background-color: #304829;
 }
