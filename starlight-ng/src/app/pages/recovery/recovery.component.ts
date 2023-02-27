@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recovery',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./recovery.component.css']
 })
 export class RecoveryComponent {
+  constructor(private router: Router) {}
+  
+  recover(event: any) {
+    this.router.navigate(['change-password']);
+  }
 
 }

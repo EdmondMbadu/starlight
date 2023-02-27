@@ -10,7 +10,6 @@ export class HomepageComponent {
   constructor(private router: Router) {}
   
   register(event: any) {
-    // console.log('register', event);
-    this.router.navigate(['register']);
+    this.router.navigate(['registration']);
   }
 }
