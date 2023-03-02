@@ -1,0 +1,105 @@
+/* NAV BAR */
+.nav-elements{
+    margin-top: 1.5rem;
+    float: right;
+}
+
+.nav-logo{
+    width: 8rem;
+    border-radius: 2rem;
+}
+
+.navbar-row{
+    background-color: #5A794F;
+}
+
+/* li{
+ list-style: none;
+ display: inline;
+ color:black;
+} */
+
+ul li:hover {
+    background-color: #ecd8d1;
+}
+
+.nav-li {
+    list-style-type: none;
+    display: inline;
+    color:black;
+    background-color: white;
+
+    width: 20rem;
+    height: 10rem;
+    margin: 1rem;
+    padding: .5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 2rem;
+    
+    /* color: #627753;
+    -webkit-text-stroke: 0.5px #eab5a4; */
+    /* text-decoration: none; */
+}
+
+a:visited {
+    color: black;
+}
+
+
+/* MAIN SECTION */
+.main-image{
+    float: right;
+    margin: 0rem 3rem;
+    border-radius: 50%;
+    width: 25rem;
+}
+
+.main-h{
+  margin-top: 5rem;
+  margin-left:10rem ;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #627753;
+  -webkit-text-stroke: 1px #eab5a4;
+   
+}
+.main-h2{
+    margin-left: 10rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #627753;
+    -webkit-text-stroke: 1px #eab5a4;
+   
+}
+
+app-greenbtn {
+    margin: 3rem 14rem;
+}
+
+.main-vid{
+
+    margin-top: 10rem ;
+    margin-left: 20rem;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+/* ABOUT US SECTION */
+.about-h{
+    margin: 5rem;
+    color: #627753;
+    -webkit-text-stroke: 1px #eab5a4;
+    text-align: center;
+    font-size: 3rem;
+
+}
+.about-h1{
+    text-align: center;
+    margin: 4rem;
+    font-weight: normal;
+    color: #627753;
+    -webkit-text-stroke: 1px #eab5a4;
+
+}
