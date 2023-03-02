@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { CommunitiesComponent } from './pages/communities/communities.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     NavbarComponent,
     RegistrationComponent,
     RecoveryComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CommunitiesComponent
   ],
   imports: [
     BrowserModule,
