@@ -10,6 +10,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
+import { PostCartComponent } from './components/post-cart/post-cart.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
+import { CommunitiesComponent } from './pages/communities/communities.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     NavbarComponent,
     RegistrationComponent,
     RecoveryComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    HomepagePostsComponent,
+    PostCartComponent,
+    SidebarComponent,
+    NewPostComponent,
+    CommunitiesComponent
   ],
   imports: [
     BrowserModule,

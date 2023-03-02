@@ -1,8 +1,17 @@
 .nav-logo{
+    margin: 0rem;
     width: 8rem;
+    justify-content: center;
     border-radius: 2rem;
 }
-
+.nav-title{
+    margin: 0rem;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+     -webkit-text-stroke: 1px #eab5a4;
+    
+}
 .navbar-row{
     background-color: #5A794F;
 }
@@ -11,8 +20,8 @@ li{
  list-style: none;
  display: inline;
  color:black;
-}
-
+} 
+ 
 .nav-li{
     
     width: 20rem;
@@ -27,4 +36,4 @@ li{
 }
 .nav-li:hover{
     border-color:  #eab5a4;
-}
+} 

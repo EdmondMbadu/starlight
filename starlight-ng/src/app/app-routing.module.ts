@@ -6,6 +6,9 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
+import { CommunitiesComponent } from './pages/communities/communities.component';
 
 const routes: Routes = [
   {
@@ -28,10 +31,18 @@ const routes: Routes = [
     path: 'change-password',
     component: ChangePasswordComponent,
   },
-  // {
-  //   path: '',
-  //   component: AppComponent,
-  // }
+  {
+    path:'homepage-posts',
+    component:HomepagePostsComponent,
+  },
+  {
+    path:'new-post',
+    component: NewPostComponent,
+  },
+  {
+    path:'communities',
+    component:CommunitiesComponent
+  }
 ];
 
 @NgModule({
