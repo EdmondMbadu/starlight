@@ -3,8 +3,13 @@
 <div class="container">
 
     <div class="profile-pic">
-        <img class="profile-logo" src="../../../assets/img/profile.jpg" alt="Profile Logo"> <br>
-        <a href="">Change Picture</a>
+        <label class="hoverable" for="fileInput">
+            <img [src]="url ? url : '../../../assets/img/profile.jpg'"> 
+            <div class="hover-text">Choose file</div>
+            <div class="background"></div>
+        </label>
+        <br/>
+        <input id="fileInput" type='file' (change)="onSelectFile($event)">
     </div>
 
     <!-- REGISTRATION FORM -->
@@ -16,8 +21,8 @@
                 <input type="email" name="email-field" id="long-input" placeholder="Email"> <br>
                 <input type="password" name="old-password-field" id="long-input" placeholder="Old Password"> <br>
                 <input type="password" name="new-password-field" id="long-input" placeholder="New Password" class="last-input"> <br>
-                <app-greenbtn buttonName="Cancel"></app-greenbtn>
-                <app-greenbtn buttonName="Update Profile"></app-greenbtn> <br>
+                <app-greenbtn buttonName="Cancel" (click)="cancelAction($event)"></app-greenbtn>
+                <app-greenbtn buttonName="Update Profile" (click)="updateProfile($event)"></app-greenbtn> <br>
             </form>
         </div>
     </div>

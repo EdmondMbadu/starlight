@@ -1,3 +1,4 @@
+/* FORM STYLING */
 input {
     width: 15rem;
     margin: .5rem;
@@ -15,20 +16,67 @@ input#long-input {
     width: 36rem;
     height: 25rem;
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 3rem;
 }
-/* 
-.form-div {
-    margin-top: 3rem;
-} */
+
 .container {
     display: grid;
     place-content: center;
 }
+
+/* PROFILE PICTURE STYLING */
 .profile-pic {
-    text-align: center;
+    margin-left: 12rem;
+    margin-top: 1rem;
+    margin-bottom: -3rem;
+}
+
+img {
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
-    border: 1px solid;
-    width: 12rem;
-    height: 12rem;
+}
+
+.hoverable{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    border: .5px solid grey;
+    border-radius: 50%;
+}
+
+.hoverable .hover-text{
+    position: absolute;
+    display: none;
+    top: 50%;
+    left:  50%;
+    transform: translate(-50%,-50%);   
+    z-index: 2;
+}
+
+.hoverable .background{
+    position: absolute;
+    display: none;
+    top: 0;
+    left:  0;
+    bottom: 0;
+    right: 0;
+    background-color:rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hoverable:hover .hover-text{
+    display: block;
+}
+
+.hoverable:hover .background{
+    display: block;
+}
+
+#fileInput{
+    display: none;
 }

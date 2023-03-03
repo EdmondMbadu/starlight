@@ -65,6 +65,7 @@ li{
     overflow: auto;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
     background-color: beige;
+    border-radius: .5rem;
   }
   .dropdown:hover .dropdown-content {
     display: block;
