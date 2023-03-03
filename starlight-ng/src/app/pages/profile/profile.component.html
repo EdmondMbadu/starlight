@@ -1,0 +1,25 @@
+<app-navbar path="/homepage-posts" title="MY PROFILE" loggedIn="true"></app-navbar>
+
+<div class="container">
+
+    <div class="profile-pic">
+        <img class="profile-logo" src="../../../assets/img/profile.jpg" alt="Profile Logo"> <br>
+        <a href="">Change Picture</a>
+    </div>
+
+    <!-- REGISTRATION FORM -->
+    <div class="form-container">
+        <div class="form-div">
+            <form id="profile-form" action="">
+                <input type="text" name="fistname-field" placeholder="First Name">
+                <input type="text" name="lastname-field" placeholder="Last Name"> <br>
+                <input type="email" name="email-field" id="long-input" placeholder="Email"> <br>
+                <input type="password" name="old-password-field" id="long-input" placeholder="Old Password"> <br>
+                <input type="password" name="new-password-field" id="long-input" placeholder="New Password" class="last-input"> <br>
+                <app-greenbtn buttonName="Cancel"></app-greenbtn>
+                <app-greenbtn buttonName="Update Profile"></app-greenbtn> <br>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -6,4 +6,14 @@
     </a>
     <h6 class="nav-title">{{title}}</h6>
 
+    <div class="right-nav" *ngIf="loggedIn">
+      <div class="dropdown">
+        <img class="profile-logo" src="../../../assets/img/profile.jpg" alt="Profile Logo">
+        <div class="dropdown-content">
+        <a href="/profile">Update Profile</a>
+        <a href="">Log Out</a>
+        </div>
+      </div>      
+    </div>
+
 </nav>

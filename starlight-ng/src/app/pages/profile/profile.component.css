@@ -1,0 +1,34 @@
+input {
+    width: 15rem;
+    margin: .5rem;
+}
+
+input#long-input {
+    width: 32rem;
+}
+
+.last-input {
+    margin-bottom: 3rem;
+}
+
+#profile-form {
+    width: 36rem;
+    height: 25rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+/* 
+.form-div {
+    margin-top: 3rem;
+} */
+.container {
+    display: grid;
+    place-content: center;
+}
+.profile-pic {
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid;
+    width: 12rem;
+    height: 12rem;
+}

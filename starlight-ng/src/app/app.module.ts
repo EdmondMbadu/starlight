@@ -15,6 +15,7 @@ import { PostCartComponent } from './components/post-cart/post-cart.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CommunitiesComponent } from './pages/communities/communities.component'
     PostCartComponent,
     SidebarComponent,
     NewPostComponent,
-    CommunitiesComponent
+    CommunitiesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

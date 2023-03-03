@@ -10,4 +10,5 @@ export class NavbarComponent {
 
   @Input() title: string = '';
   @Input() path:string="";
+  @Input() loggedIn:string = "";
 }
