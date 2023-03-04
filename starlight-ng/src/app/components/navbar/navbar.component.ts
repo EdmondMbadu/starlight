@@ -9,5 +9,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class NavbarComponent {
 
   @Input() title: string = '';
+  @Input() icon:string='';
   @Input() path:string="";
 }

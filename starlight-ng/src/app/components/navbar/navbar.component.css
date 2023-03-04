@@ -5,7 +5,7 @@
     border-radius: 2rem;
 }
 .nav-title{
-    margin: 0rem;
+    margin: 0rem auto;
     font-size: 2rem;
     text-align: center;
     color: white;
@@ -15,6 +15,24 @@
 .navbar-row{
     background-color: #5A794F;
 }
+.nav-account{
+    float: right;
+    width: 4rem;
+    margin: 2rem;
+}
+.nav-logoff{
+    float: right;
+    width: 4rem;
+    margin: 2rem;
+}
+.nav-logoff:hover{
+    background-color: white;
+    
+}
+.nav-account:hover{
+    background-color: white;
+}
+
 
 li{
  list-style: none;
