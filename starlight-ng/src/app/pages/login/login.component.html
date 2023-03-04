@@ -12,7 +12,7 @@
             <form id="login-form" action="">
                 <input type="email" name="email-field" placeholder="Email"> <br>
                 <input type="password" name="password-field" placeholder="Password" class="last-input"> <br>
-                <app-greenbtn buttonName="Log In"></app-greenbtn> <br>
+                <app-greenbtn buttonName="Log In"(click)="gotoHome($event)"></app-greenbtn> <br>
                 <!-- <input type="submit" value="Log In"> -->
             </form>
             <a class="small-link" href="recovery">Forgot password?</a>

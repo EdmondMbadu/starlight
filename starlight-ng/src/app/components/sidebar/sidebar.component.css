@@ -1,0 +1,13 @@
+.vertical-separator {
+    height: 100%;
+    width: 0.5px;
+    background-color: #979797;
+    position: absolute;
+    margin-left: 16rem;
+}
+
+.sidebar {
+    height: 100%;
+    position: absolute;
+    width: 15rem;
+}
