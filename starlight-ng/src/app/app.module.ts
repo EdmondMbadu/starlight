@@ -10,13 +10,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
-<<<<<<< HEAD
-=======
 import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
 import { PostCartComponent } from './components/post-cart/post-cart.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
->>>>>>> origin/edmon-changes
 import { CommunitiesComponent } from './pages/communities/communities.component';
 
 @NgModule({
@@ -29,13 +26,10 @@ import { CommunitiesComponent } from './pages/communities/communities.component'
     RegistrationComponent,
     RecoveryComponent,
     ChangePasswordComponent,
-<<<<<<< HEAD
-=======
     HomepagePostsComponent,
     PostCartComponent,
     SidebarComponent,
     NewPostComponent,
->>>>>>> origin/edmon-changes
     CommunitiesComponent
   ],
   imports: [
