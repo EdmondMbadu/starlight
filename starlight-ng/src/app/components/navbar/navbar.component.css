@@ -6,11 +6,16 @@
 }
 .nav-title{
     margin: 0rem auto;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     text-align: center;
     color: white;
      -webkit-text-stroke: 1px #eab5a4;
     
+}
+.bi{
+    font-size: 2rem;
+    /* margin: 1rem; */
+
 }
 .navbar-row{
     background-color: #5A794F;
