@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavbarComponent } from './navbar.component';
 
 describe('NavbarComponent', () => {

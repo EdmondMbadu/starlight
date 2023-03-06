@@ -16,6 +16,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ParticularCommunityComponent } from './pages/particular-community/particular-community.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     SidebarComponent,
     NewPostComponent,
     CommunitiesComponent,
-    ProfileComponent
+    ProfileComponent,
+    ParticularCommunityComponent
   ],
   imports: [
     BrowserModule,

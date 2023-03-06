@@ -10,6 +10,7 @@ import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.co
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ParticularCommunityComponent } from './pages/particular-community/particular-community.component';
 
 const routes: Routes = [
   {
@@ -48,10 +49,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
   },
-  // {
-  //   path: '',
-  //   component: AppComponent,
-  // }
+  {
+    path: 'particular-community',
+    component: ParticularCommunityComponent,
+  }
 ];
 
 @NgModule({

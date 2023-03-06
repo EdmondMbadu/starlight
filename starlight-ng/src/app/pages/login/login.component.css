@@ -22,7 +22,11 @@ h1 {
 
 #login-form {
     width: 25rem;
-    height: 15rem;
+    height: 20rem;
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 5rem;
+}
+
+.small-link{
+    margin: 1rem;
 }

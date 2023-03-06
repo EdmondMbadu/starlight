@@ -1,4 +1,32 @@
-
-<app-navbar loggedIn="true" path="/homepage-posts"  title="NEW POST"></app-navbar>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<app-navbar icon="true" path="/homepage-posts"  title="NEW POST" loggedIn="true"></app-navbar>
 <app-sidebar></app-sidebar>
 
+<div class="post">
+  
+   <form action="">  
+       <input id="input-title" type="text" placeholder="TITLE"> 
+       <nav class="labels">
+         
+          <label for="community-select">Select a community:</label>
+          <select id="community-select">
+          <option value="essay">Essay</option>
+          <option value="fiction">Fiction</option>
+          <option value="philosophy">Philosophy</option>
+          <option value="historical">Historical</option>
+          <option value="comedy">Comedy</option>
+          <option value="poetry">Poetry</option>
+          </select>
+         
+         </nav> 
+       <textarea class="post-input"type="text" id="name" name="name" required
+       placeholder="Enter  your text here..."></textarea>
+     
+       <!-- <app-greenbtn class="post-b" buttonName="Cancel"(click)="cancelNewPost($event)"></app-greenbtn>
+       <app-greenbtn class="post-b" buttonName="Submit"(click)="createNewPost($event)"></app-greenbtn> -->
+      
+   </form>
+   
+   
+
+</div>

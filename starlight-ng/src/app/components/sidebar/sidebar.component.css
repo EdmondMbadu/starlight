@@ -3,7 +3,8 @@
     width: 0.5px;
     background-color: #979797;
     position: absolute;
-    margin-left: 16rem;
+    top: 1;
+    left: 16rem;
 }
 
 .sidebar {

@@ -1,3 +1,70 @@
-
-<app-navbar loggedIn="true" path="/homepage-posts" title="COMMUNITIES"></app-navbar>
+<app-navbar path="/Communities" title="COMMUNITIES" loggedIn="true"></app-navbar>
 <app-sidebar></app-sidebar>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <a routerLink="/particular-community">
+        <div class="card">
+          <img class="card-img-top" src="../../../assets/img/communityimg.png" alt="">
+          <div class="card-body">
+            <h5 class="card-title text-center">Fiction</h5>
+          </div>
+        </div>
+      </a>
+    </div>    
+    <div class="col-md-4">
+      <a routerLink="/particular-community">
+      <div class="card">
+        <img class="card-img-top" src="../../../assets/img/communityimg.png" alt="">
+        <div class="card-body">
+          <h5 class="card-title text-center">Philosophy</h5>
+        </div>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a routerLink="/particular-community">
+      <div class="card">
+        <img class="card-img-top" src="../../../assets/img/communityimg.png" alt="">
+        <div class="card-body">
+          <h5 class="card-title text-center">Historical</h5>
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="../../../assets/img/communityimg.png" alt="">
+        <div class="card-body">
+          <h5 class="card-title text-center">Essay</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="../../../assets/img/communityimg.png" alt="">
+        <div class="card-body">
+          <h5 class="card-title text-center">Comedy</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="../../../assets/img/communityimg.png" alt="">
+        <div class="card-body">
+          <h5 class="card-title text-center">Poetry</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

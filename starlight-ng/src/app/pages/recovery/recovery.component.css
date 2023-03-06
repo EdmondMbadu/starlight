@@ -1,13 +1,14 @@
 input {
-    width: 22rem;
+    text-align: center;
+    width: 16rem;
 }
 
 app-greenbtn {
-    margin: 4rem;
+    margin: 1rem;
 }
 
 .last-input {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 h1 {
@@ -20,7 +21,11 @@ h1 {
 
 #email-form {
     width: 25rem;
-    height: 13rem;
-    padding-top: 1rem;
-    padding-left: 2rem;
+    height: 20rem;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.small-link{
+    margin: -2rem;
 }
