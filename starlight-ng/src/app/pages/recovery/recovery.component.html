@@ -1,21 +1,15 @@
-<app-navbar></app-navbar>
+<app-navbar icon=false title="ACCOUNT RECOVERY"></app-navbar>
 
-<div class="container">
-    <!-- ACCOUNT RECOVERY -->
-    <div>
-        <h1>ACCOUNT RECOVERY</h1>
-    </div>
-
-    <!-- RECOVERY FORM -->
-    <div class="form-container">
-        <div class="form-div">
-            <form id="email-form" action="">
-                <p>Please enter your email.</p>
-                <input type="email" name="email-field" placeholder="Email" class="last-input"> <br>
-                <app-greenbtn buttonName="Submit" (click)="recover($event)"></app-greenbtn> <br>
-            </form>
-            <a class="small-link" href="registration">Sign Up</a>
+<div class="container text-center">
+    <form>
+      <div class="form-row my-3">
+        <p>Please enter your email.</p>
+        <div class="col">
+          <input type="email" class="form-control" placeholder="Email">
         </div>
-    </div>
-    
-</div>
+        <app-greenbtn buttonName="Submit" (click)="recover($event)"></app-greenbtn>
+        <!-- <button type="submit" class="btn btn-success my-3" (click)="gotoHome($event)">Log In</button> -->
+      </div>
+      <a class="small-link py-5" href="registration">Sign Up</a>
+    </form>
+</div> 

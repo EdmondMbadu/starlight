@@ -4,27 +4,11 @@ input {
     margin: 1rem;
 }
 
-/* .last-input {
-    margin-bottom: 3rem;
-} */
-
-/* app-greenbtn {
-    margin-top: 3rem;
-} */
-
-/* h1 {
-    margin-bottom: 0rem;
-    margin-top: 3rem;
-    text-align: center;
-    color: #627753;
-    -webkit-text-stroke: 0.5px #eab5a4;
+.container {
+    width: 18rem; 
+    height: auto;
+    border-radius:1rem; 
+    border: #5A794F solid; 
+    padding-top:3rem; 
+    margin-top:10rem;
 }
-
-#login-form {
-    width: 25rem;
-    height: 15rem;
-    text-align: center;
-    padding-top: 4rem;
-} */
-
-

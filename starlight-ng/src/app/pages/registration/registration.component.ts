@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class RegistrationComponent {
   constructor(private router: Router) {}
   
-  login(event: any) {
+  goTologin(event: any) {
     this.router.navigate(['login']);
   }
 

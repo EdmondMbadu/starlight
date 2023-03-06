@@ -1,26 +1,7 @@
-<app-navbar icon=false></app-navbar>
-<!-- 
-<div class="container">
+<app-navbar icon=false title="LOG IN"></app-navbar>
 
-    <div>
-        <h1>LOG IN</h1>
-    </div>
-
-    <div class="form-container">
-        <div class="form-div">
-            <form id="login-form" action="">
-                <input type="email" name="email-field" placeholder="Email"> <br>
-                <input type="password" name="password-field" placeholder="Password" class="last-input"> <br>
-                <app-greenbtn buttonName="Log In"(click)="gotoHome($event)"></app-greenbtn> <br>
-            </form>
-            <a class="small-link" href="recovery">Forgot password?</a>
-        </div>
-    </div>
-    
-</div> -->
-
-<div class="container text-center" style="width: 18rem; height: auto;border-radius:1rem; border:1px black solid; padding-top:5rem; margin-top:10rem">
-<form>
+<div class="container text-center">
+  <form>
     <div class="form-row my-3">
       <div class="col">
         <input type="email" class="form-control" placeholder="Email">
@@ -28,7 +9,8 @@
       <div class="col">
         <input type="password" class="form-control rounded-lg" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-success my-3" (click)="gotoHome($event)">Log In</button>
+      <app-greenbtn buttonName="Log In" (click)="login($event)"></app-greenbtn>
+      <!-- <button type="submit" class="btn btn-success my-3" (click)="gotoHome($event)">Log In</button> -->
     
     </div>
     <a class="small-link py-5" href="recovery">Forgot password?</a>

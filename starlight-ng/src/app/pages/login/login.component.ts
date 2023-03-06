@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor (private router:Router){}
 
-  gotoHome(event: any){
+  login(event: any){
     this.router.navigate(['homepage-posts']);
-
   }
 
 }

@@ -1,8 +1,6 @@
-body::before{
+/* body::before{ */
+body {
     display: block;
-    content:'';
-    height:60px;
-
 }
 @media(min-width:768px){
     .news-input{
@@ -10,6 +8,19 @@ body::before{
     }
 }
 
+.showcase {
+    padding-top: 3rem;
+}
+
 h1{
     font-size: 2rem;
+}
+
+img {
+    padding-top: 2rem;
+}
+
+::placeholder {
+    color: black;
+    -webkit-text-stroke: 0 black;
 }

@@ -9,6 +9,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
   },
   {
     path:'homepage-posts',
-    component:HomepagePostsComponent,
+    component: HomepagePostsComponent,
   },
   {
     path:'new-post',
@@ -41,8 +42,12 @@ const routes: Routes = [
   },
   {
     path:'communities',
-    component:CommunitiesComponent
-  }
+    component: CommunitiesComponent
+  },
+  {
+    path:'profile',
+    component: ProfileComponent
+  },
 ];
 
 @NgModule({
