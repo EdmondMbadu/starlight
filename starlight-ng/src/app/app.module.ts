@@ -15,7 +15,6 @@ import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
 import { PostCartComponent } from './components/post-cart/post-cart.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +32,6 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ChangePasswordComponent,
     HomepagePostsComponent,
     PostCartComponent,
-    SidebarComponent,
     NewPostComponent,
     CommunitiesComponent,
     ProfileComponent

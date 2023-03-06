@@ -1,18 +1,28 @@
+<!-- SIDEBAR -->
+<!-- Collapsible content -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+
+  <div class="position-sticky">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <app-greenbtn buttonName="Homepage" (click)="goToHome($event)"></app-greenbtn>
+      <app-greenbtn buttonName="New Post" (click)="createNewPost($event)"></app-greenbtn>
+      <app-greenbtn buttonName="Communities"(click)="goToCommunities($event)"></app-greenbtn>
+    </div>
+  </div>
+</nav>
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-success navbar-dark fixed-top">
   <div class="container">
-    <a href={{path}} class="navbar-brand">StarLight</a>
-    <div class="title-div text-center">
-      <h2 class="nav-title">{{title}}</h2>
-    </div>
-
     <!-- Collapse button -->
-    <button *ngIf="icon=='true'" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+    <button *ngIf="icon=='true'" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navmenu">
+    <a href={{path}} class="navbar-brand">StarLight</a>
+    <h2 class="nav-title">{{title}}</h2>
+
+    <div id="navmenu">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a *ngIf="icon=='true'" href="/profile" class="nav-link ">
