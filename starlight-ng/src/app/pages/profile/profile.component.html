@@ -1,1 +1,36 @@
 <app-navbar icon="true" path="/homepage-posts" title="MY PROFILE"></app-navbar>
+
+<div class="container text-center">
+    <div class="profile-pic">
+        <label class="hoverable" for="fileInput">
+            <img [src]="url ? url : '../../../assets/img/account-icon.png'"> 
+            <div class="hover-text">Choose file</div>
+            <div class="background"></div>
+        </label>
+        <br/>
+        <input id="fileInput" type='file' (change)="onSelectFile($event)">
+    </div>
+    
+    <form>
+        <div class="form-row my-3">
+            <div class="col">
+                <input type="text" class="form-control short-input" placeholder="First Name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="col">
+                <input type="email" class="form-control long-input" placeholder="Email">
+            </div>
+            <div class="col">
+                <input type="password" class="form-control long-input" placeholder="New Password">
+            </div>
+            <div class="col">
+                <input type="password" class="form-control long-input" placeholder="Confirm Password">
+            </div>
+            <app-greenbtn id="cancel" buttonName="Cancel" (click)="goToHome($event)"></app-greenbtn>
+            <app-greenbtn id="update" buttonName="Update" (click)="updateProfile($event)"></app-greenbtn>
+        <!-- <button type="submit" class="btn btn-success my-3" (click)="gotoHome($event)">Log In</button> -->
+        </div>
+    </form>
+</div>   

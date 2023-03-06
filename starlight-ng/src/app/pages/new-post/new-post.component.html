@@ -1,24 +1,25 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<app-navbar icon="true" path="/homepage-posts"  title="NEW POST"></app-navbar>
+<app-navbar icon="true" path="/homepage-posts" title="NEW POST"></app-navbar>
 <app-sidebar></app-sidebar>
 
-<div class="post">
-   
+<div class="container-fluid">
+  <div class="post">
     <form action="">  
-        <input id="input-title" type="text" placeholder="TITLE"> 
+      <input id="input-title" type="text" placeholder="TITLE"> 
         <nav class="labels">
-
-            <label for="touch"><span>LABELS</span></label>               
-            <input type="checkbox" id="touch"> 
+          <label for="touch"><span>LABELS</span></label>               
+          <input type="checkbox" id="touch"> 
           
-            <ul class="slide">
-              <li><a href="/new-post">Essay</a></li> 
-              <li><a href="#">Fiction</a></li>
-              <li><a href="#">Comedy</a></li>
-              <li><a href="#">Adventure</a></li>
-            </ul>
+          <ul class="slide">
+            <li><a href="/new-post">Essay</a></li> 
+            <li><a href="/new-post">Fiction</a></li>
+            <li><a href="/new-post">Comedy</a></li>
+            <li><a href="/new-post">Adventure</a></li>
+            <li><a href="/new-post">Horror</a></li>
+            <li><a href="/new-post">Fantasy</a></li>
+            <li><a href="/new-post">Romance</a></li>
+          </ul>
           
-          </nav> 
+        </nav> 
         <textarea class="post-input"type="text" id="name" name="name" required
         placeholder="Enter  your text here..."></textarea>
       
@@ -26,7 +27,6 @@
         <app-greenbtn class="post-b" buttonName="Submit"(click)="createNewPost($event)"></app-greenbtn>
        
     </form>
-    
-    
-
+  </div>
 </div>
+

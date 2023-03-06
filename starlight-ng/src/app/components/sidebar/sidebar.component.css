@@ -2,12 +2,23 @@
     height: 100%;
     width: 0.5px;
     background-color: #979797;
-    position: absolute;
-    margin-left: 16rem;
+    position: fixed;
+    margin-left: 12rem;
 }
 
 .sidebar {
     height: 100%;
     position: absolute;
-    width: 15rem;
+    width: 11rem;
+    padding-left: 1rem;
+    position: fixed;
+}
+@media(min-width:350px){
+    .sidebar {
+      padding-top: 10rem;
+    }
+}
+
+app-greenbtn {
+    width: 10rem;
 }
