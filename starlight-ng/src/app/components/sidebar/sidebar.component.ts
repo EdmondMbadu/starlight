@@ -22,4 +22,8 @@ export class SidebarComponent {
 
     this.router.navigate(['communities']);
   }
+  currentTab(event:any){
+    console.log("The current tab is",event);
+
+  }
 }
