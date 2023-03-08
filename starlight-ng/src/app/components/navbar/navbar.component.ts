@@ -13,6 +13,15 @@ export class NavbarComponent {
   @Input() path:string="";
   communities:boolean=false;
 
+  communityList:string[]=[
+    "Fantasy",
+    "Commedy",
+    "Fiction",
+    "Horror",
+    "Romance",
+    "Adventure"
+  ];
+
   displayCommunities(event:any){
     this.communities=!this.communities;
 

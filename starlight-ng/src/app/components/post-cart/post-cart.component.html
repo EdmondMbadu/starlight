@@ -1,37 +1,3 @@
-<!-- 
-<div class="post-cart">
-    <div class="cart">
-      
-            <h2 class="cart-title">{{title}}</h2>
-            <p class="cart-text">The silent wanderer looks and observes <br>
-                Words are of no use <br>
-                It is not the way nature expresses itself <br>  
-                Nature expresses itself through different means <br>
-                Words are for humans who wants to be overly specific <br>
-                Nature understands and hence can do the same thing in infinitely different ways <br>
-                Humans are cursed through words ... <br>
-                What he thinks to be his greatest possession is also his greatest limitation 
-          
-
-                </p>
-                 <div class="cart-stat">
-                    <a href="/homepage-posts">
-                    <img class="cart-logo"src="../../../assets/img/heart.png" alt="">
-                    </a>
-                    <a href="/homepage-posts">
-                    <img class="cart-logo"src="../../../assets/img/comment-icon.png" alt="">
-                    </a>
-                    <a href="/homepage-posts">
-                    <img class="cart-logo trash"src="../../../assets/img/trash.png" alt="">
-                    </a>
-                    <a href="/homepage-posts">
-                    <h3 class="cart-topic"> #Essay</h3>
-                    </a>
-                   
-                 </div>
-        
-    </div>
-</div> -->
 
 <table class="post-cart-table">
     <tr>
@@ -48,11 +14,42 @@
     <tr>
       <td colspan="2">
         <div class="cart-stat">
-          <a href="/homepage-posts"><img class="cart-logo" src="../../../assets/img/heart.png" alt=""></a>
-          <a href="/homepage-posts"><img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""></a>
+          <a ><img class="cart-logo" (click)="incrementCounter($event)" src="../../../assets/img/heart.png" alt=""></a>
+          <a class="counter">{{counter}}</a>
+          <a (click)="showComments($event)"><img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""></a>
           <a href="/homepage-posts"><img class="cart-logo" src="../../../assets/img/trash.png" alt=""></a>
           <a href="/homepage-posts"><h3 class="cart-topic"> #Essay</h3></a>
         </div>
       </td>
     </tr>
   </table>
+
+
+  <!-- COMMENT SECTION -->
+  <div class="container">
+<div *ngIf="seeComments" class="comment-section">
+    <div class="post-comment">
+      <div class="list">
+        <div class="user">
+          <div class="user-img">
+            <img src="../../../assets/img/account-icon.png" alt="">
+          </div>
+          <div class="user-meta">
+            <div class="name">Stef</div>
+            <div class="day">10 days ago</div>
+          </div>
+        </div>
+        <div class="comment-post">Lorem ipsum dolor sit amest</div>
+      </div>
+    </div>
+    <div class="comment-box">
+      <form action="" method="post">
+        <!-- <textarea name="comment" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea> -->
+        <input class="comment-input" type="text" placeholder="Write a comment...">
+        <button class="submit-comment" type="submit"> 
+          <i class="bi bi-send"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

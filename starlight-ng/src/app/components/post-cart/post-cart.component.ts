@@ -10,4 +10,14 @@ export class PostCartComponent {
 
   @Input() title: string = '';
   @Output() click = new EventEmitter<MouseEvent>();
+
+  counter: number =0;
+  seeComments:boolean=false;
+
+  showComments(event:any){
+    this.seeComments=!this.seeComments;
+  }
+  incrementCounter(event:any){
+    this.counter++;
+  }
 }

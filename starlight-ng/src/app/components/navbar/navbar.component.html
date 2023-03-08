@@ -16,18 +16,11 @@
       <a href="communities" class="dropdown list-group-item list-group-item-action py-3 ripple "
       (click)="displayCommunities($event)"
       id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fas fa-lock fa-fw me-3"></i>
         <span>Communities</span>
-        <i class="fa fa-caret-down"></i>
+       <img class="dropdown" src="../../../assets/img/dropdownimg.png" alt="">
       </a>
       <div *ngIf="communities"class="dropdown-container">
-        <a class="dropdown-item" href="#">Fantasy</a>
-        <a class="dropdown-item" href="#">Essay</a>
-        <a class="dropdown-item"href="#">Commedy</a>
-        <a class="dropdown-item" href="#">Fiction</a>
-        <a class="dropdown-item" href="#">Horror</a>
-        <a class="dropdown-item" href="#">Romance</a>
-        <a class="dropdown-item" href="#">Adventure</a>
+        <a *ngFor="let c of communityList" class="dropdown-item" href="#">{{c}}</a>
       </div>
         
      
@@ -56,7 +49,7 @@
     <div class="dropdown">
       <i  class="bi bi-person"></i>
       <div class="dropdown-content">
-      <a href="/profile">Update Profile</a>
+      <a href="/update-profile">Update Profile</a>
       <a href="">Log Out</a>
       </div>
     </div>      

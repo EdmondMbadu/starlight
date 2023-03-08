@@ -20,6 +20,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PostCartComponent,
     SidebarComponent,
     NewPostComponent,
-    CommunitiesComponent
+    CommunitiesComponent,
+    UpdateProfileComponent,
+
   ],
   imports: [
     BrowserModule,
