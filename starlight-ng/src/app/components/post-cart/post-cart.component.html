@@ -14,11 +14,22 @@
     <tr>
       <td colspan="2">
         <div class="cart-stat">
-          <a ><img class="cart-logo" (click)="incrementCounter($event)" src="../../../assets/img/heart.png" alt=""></a>
-          <a class="counter">{{counter}}</a>
-          <a (click)="showComments($event)"><img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""></a>
-          <a href="/homepage-posts"><img class="cart-logo" src="../../../assets/img/trash.png" alt=""></a>
-          <a href="/homepage-posts"><h3 class="cart-topic"> #Essay</h3></a>
+          <a (click)="incrementCounter($event)">
+            <!-- <img class="cart-logo" src="../../../assets/img/heart.png" alt=""> -->
+            <i class="bi bi-heart fs-4 cart-logo"></i>
+          </a>
+          <span class="counter">{{counter}}</span>
+          <a (click)="showComments($event)">
+            <!-- <img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""> -->
+            <i class="bi bi-chat fs-4 cart-logo"></i>
+          </a>
+          <a (click)="openDialog()">
+            <!-- <img class="cart-logo" src="../../../assets/img/trash.png" alt=""> -->
+            <i class="bi bi-trash-fill fs-4 cart-logo"></i>
+          </a>
+          <a href="/homepage-posts">
+            <h3 class="cart-topic"> #Essay</h3>
+          </a>
         </div>
       </td>
     </tr>
@@ -26,8 +37,8 @@
 
 
   <!-- COMMENT SECTION -->
-  <div class="container">
-<div *ngIf="seeComments" class="comment-section">
+<div class="container">
+  <div *ngIf="seeComments" class="comment-section">
     <div class="post-comment">
       <div class="list">
         <div class="user">
@@ -46,7 +57,7 @@
       <form action="" method="post">
         <!-- <textarea name="comment" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea> -->
         <input class="comment-input" type="text" placeholder="Write a comment...">
-        <button class="submit-comment" type="submit"> 
+        <button class="submit-comment btn btn-success btn-block" type="submit"> 
           <i class="bi bi-send"></i>
         </button>
       </form>

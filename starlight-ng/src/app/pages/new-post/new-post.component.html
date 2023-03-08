@@ -30,8 +30,8 @@
 
       <div class="col-md-10 text-center mb-5">
         <!-- <button class="btn btn-info bg-theme">Save Post</button> -->
-        <app-greenbtn class="post-b" buttonName="Cancel"(click)="cancelNewPost($event)"></app-greenbtn>
-        <app-greenbtn class="post-b" buttonName="Submit"(click)="createNewPost($event)"></app-greenbtn>
+        <button class="btn btn-lg btn-success btn-block" type="submit" (click)="cancelNewPost($event)">Cancel</button>
+        <button class="btn btn-lg btn-success btn-block" type="submit" (click)="createNewPost($event)">Submit</button>
       </div>
     </div>
   </form>

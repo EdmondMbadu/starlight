@@ -20,11 +20,19 @@
   margin-left: 20%; 
 }
 
+/* @media(min-width:350px){ */
 @media(min-width:350px){
   .container {
-    padding-top: 8rem;
+    padding-top: 7rem;
+    /* margin-left: 0; */
   }
 }
+
+/* @media(max-width:1000px){
+  .container {
+    margin-left: 20%;
+  }
+} */
 
 #input-title{
   text-align: center;
@@ -55,6 +63,18 @@ li a {
   color : #2d2f31;
 }
 
-.post-b {
+.btn {
+  padding: 0px;
+  font-weight: 300;
+  font-size: 14px;
+  height: 2.5rem;
+  width: 12rem;
+  border-radius: 2rem;
+  border: none;
   margin-right: 3rem;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: rgb(12, 97, 33);
 }

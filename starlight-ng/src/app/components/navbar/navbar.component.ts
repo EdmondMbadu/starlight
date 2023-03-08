@@ -15,7 +15,7 @@ export class NavbarComponent {
 
   communityList:string[]=[
     "Fantasy",
-    "Commedy",
+    "Comedy",
     "Fiction",
     "Horror",
     "Romance",

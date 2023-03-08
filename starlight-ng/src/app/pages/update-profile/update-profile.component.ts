@@ -18,7 +18,7 @@ Update: any;
   }
 
   updateProfile(event: any) {
-    this.router.navigate(['homepage-posts']);
+    this.router.navigate(['update-profile']);
   }
 
   onSelectFile(event:any) {
