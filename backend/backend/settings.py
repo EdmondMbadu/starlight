@@ -30,6 +30,16 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -37,9 +47,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # "our_app.apps.OurAppConfig",
+    "our_app",
+    "rest_framework",
+    #CORS
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    #CORS middleware
+    "corsheaders.middleware.CorsMiddleware",
+    #Django middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -51,10 +69,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "backend.urls"
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:4200",
+)
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "our_app/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -80,6 +103,10 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'our_app.CustomUser'
+# Login
+# LOGIN_REDIRECT_URL = "/"
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -104,11 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
 
