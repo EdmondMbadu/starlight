@@ -8,16 +8,24 @@
       <p class="cart-text">This dystopian novel imagines a future in which the government has complete control over people's lives and thoughts. The story follows a man named Winston Smith, who begins to rebel against the oppressive regime and falls in love with a fellow rebel named Julia.</p>
     </div>
     <div class="post-stats">
+      <!-- like button -->
       <a (click)="incrementCounter($event)">
-        <i class="bi bi-heart fs-4"></i>
+        <i class="bi fs-4" [class.bi-heart]="!isActive" [class.bi-heart-fill]="isActive"></i>
       </a>
-      <span class="counter cart-logo">{{counter}}</span>
+      &nbsp;
+      <span class="counter cart-logo">{{likes}}</span>
+
+      <!-- comment button -->
       <a (click)="showComments($event)">
         <i class="bi bi-chat fs-4 cart-logo"></i>
       </a>
+
+      <!-- delete button -->
       <a (click)="openDialog()">
         <i class="bi bi-trash-fill fs-4 cart-logo"></i>
       </a>
+      
+      <!-- community label -->
       <a href="/homepage-posts">
         <h3 class="post-label"> #Essay</h3>
       </a>

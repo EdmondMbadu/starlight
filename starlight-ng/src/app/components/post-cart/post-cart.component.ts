@@ -12,9 +12,9 @@ export class PostCartComponent {// implements OnInit {
 
   @Input() title: string = '';
   @Output() click = new EventEmitter<MouseEvent>();
-
-  counter: number =0;
-  seeComments:boolean=false;
+  @Input() isActive: boolean = false;
+  @Input() likes: number =0;
+  @Input() seeComments:boolean=false;
 
   constructor(private dialogRef : MatDialog){}
 
@@ -28,6 +28,7 @@ export class PostCartComponent {// implements OnInit {
   }
 
   incrementCounter(event:any){
-    this.counter++;
+    this.likes += (this.isActive) ? -1 : 1;
+		this.isActive = !this.isActive;
   }
 }

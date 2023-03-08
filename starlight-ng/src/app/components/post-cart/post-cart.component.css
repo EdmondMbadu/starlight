@@ -86,20 +86,30 @@ a{
     margin-top: 2rem;
 }
 
-.bi-heart {
-    padding-right: 0rem;
-}
+/* POST STATS STYLING */
+
 .cart-logo{
     /* margin-left: 1rem; */
     margin-bottom: .1rem;
-    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
-/* COMMENT SECTION */
+    /* LIKE BUTTON STYLING */
+    .bi-heart {
+        color: #353333;
+    }
+    .bi-heart-fill {
+        color: red;
+    }
+    .bi {
+        cursor: pointer;
+    }
+
+    /* COMMENT SECTION */
 .post-comment{
     width: 100%;
 }
-        /* COMMENTS LIST */
+            /* COMMENTS LIST */
 .list{
     background-color: #fff;
     border-radius: 6px;
@@ -132,7 +142,7 @@ img {
     padding: 0 0 15px 58px;
 }
 
-        /* COMMENT BOX */
+            /* COMMENT BOX */
 .btn {
     padding: .5rem;
     float: right;
