@@ -20,11 +20,9 @@
        <img class="dropdown" src="../../../assets/img/dropdownimg.png" alt="">
       </a>
       <div *ngIf="communities"class="dropdown-container">
-        <a *ngFor="let c of communityList" class="dropdown-item" href="#">{{c}}</a>
+        <a *ngFor="let c of communityList" class="dropdown-item" (click)="sendCommunityTag(c)">{{c}}</a>
       </div>
-        
-     
-     
+      
     </div>
   </div>
 </nav>
@@ -41,7 +39,7 @@
    <span class="navbar-toggler-icon"></span>
   </button>
   <a href={{path}} class="navbar-brand">StarLight</a>
-  <h2 class="nav-title">{{title}}</h2>
+  <h2 class="nav-title">{{prefix}} {{title}}</h2>
 
   
   
