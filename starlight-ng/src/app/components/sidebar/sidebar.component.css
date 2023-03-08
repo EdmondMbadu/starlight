@@ -50,6 +50,12 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
+  .list-group-item{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 5rem;
+  }
   .list-group-item:hover{
-        background-color: #FAEEE5;
+    color: white;
+        background-color: #458559;
   }

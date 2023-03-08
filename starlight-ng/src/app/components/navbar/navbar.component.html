@@ -1,47 +1,65 @@
-<!-- NAVBAR -->
-<!-- <nav class="navbar-row">
-
-    <a href={{path}}>
-      <img class="nav-logo" src="../assets/img/starlight-logo.svg" alt="">
+ <!-- Sidebar -->
+ <nav   *ngIf="icon=='true'" id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+  <div class="position-sticky">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <a
+        href="homepage-posts"
+        class="list-group-item list-group-item-action py-3 ripple"
+        aria-current="true"
+        
+      >
+        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Home</span>
+      </a>
+      <a href="new-post" class="list-group-item list-group-item-action py-3 ripple ">
+        <i class="fas fa-chart-area fa-fw me-3"></i><span>New Post</span>
+      </a>
+      <a href="communities" class="dropdown list-group-item list-group-item-action py-3 ripple "
+      (click)="displayCommunities($event)"
+      id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-lock fa-fw me-3"></i>
+        <span>Communities</span>
+        <i class="fa fa-caret-down"></i>
+      </a>
+      <div *ngIf="communities"class="dropdown-container">
+        <a class="dropdown-item" href="#">Fantasy</a>
+        <a class="dropdown-item" href="#">Essay</a>
+        <a class="dropdown-item"href="#">Commedy</a>
+        <a class="dropdown-item" href="#">Fiction</a>
+        <a class="dropdown-item" href="#">Horror</a>
+        <a class="dropdown-item" href="#">Romance</a>
+        <a class="dropdown-item" href="#">Adventure</a>
+      </div>
+        
      
-    </a>
-    <a href={{path}}>
-    <img *ngIf="icon=='true'" class="nav-account" src="../../../assets/img/account-icon.png" alt="">
-  </a>
-  <a href="">
-    <img *ngIf="icon=='true'" class="nav-logoff" src="../../../assets/img/logoff.png" alt="">    
-  </a>
-    <h6 class="nav-title">{{title}}</h6>
-
-</nav> -->
+     
+    </div>
+  </div>
+</nav>
 
  <!-- NAVBAR -->
  <nav class="navbar navbar-expand-lg bg-success navbar-dark py-3 fixed-top">
   <div class="container">
-  <a href={{path}} class="navbar-brand">StarLight</a>
   <button 
+  *ngIf="icon=='true'"
   class="navbar-toggler" 
   type="button"
    data-bs-toggle="collapse" 
-   data-bs-target="#navmenu">
+   data-bs-target="#sidebarMenu">
    <span class="navbar-toggler-icon"></span>
   </button>
-  
-  <div class="collapse navbar-collapse" id="navmenu">
-    <h2 class="nav-title">{{title}}</h2>
-      <ul class="navbar-nav ms-auto">
-          <li class="nav-item ">
-            <a  *ngIf="icon=='true'"href={{path}} class="nav-link ">
-              <i  class="bi bi-person"></i>
-            </a>
-         </li>
+  <a href={{path}} class="navbar-brand">StarLight</a>
+  <h2 class="nav-title">{{title}}</h2>
 
-         <li class="nav-item">
-          <a  *ngIf="icon=='true'"href="" class="nav-link ">
-            <i class="bi bi-box-arrow-right"></i>
-          </a>
-       </li>
-      </ul>
+  
+  
+  <div class="right-nav" *ngIf="icon=='true'">
+    <div class="dropdown">
+      <i  class="bi bi-person"></i>
+      <div class="dropdown-content">
+      <a href="/profile">Update Profile</a>
+      <a href="">Log Out</a>
+      </div>
+    </div>      
   </div>
 </div>
 </nav>

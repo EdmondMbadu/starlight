@@ -16,3 +16,9 @@ h1{
 .btn-success{
     border-radius: 2rem;;
 }
+.form-control{
+    border-radius: 2rem;;
+}
+.btn-dark{
+    border-radius: 2rem;
+}

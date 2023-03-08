@@ -1,79 +1,4 @@
-/* .post{
-  
-    margin-top:2%;
-   margin-left: 30%; 
-   margin-right: 20%;
 
-}
-
-#input-title{
-    text-align: center;
-    width: 50%;
-    font-weight: bold;
- 
-    margin-bottom: 2rem;
-    -webkit-text-stroke: 0.5px #eab5a4;
-}
-.post-input{
- 
-    width: 90%;
-    height: 30rem;
-    font-size: 1.5rem;
-    color: black;
-    border-radius: 1rem;
-
-}
-
-
-
-
-body {background-color : #ededed; font-family : "Open Sans", sans-serif;}
-
-h1 {padding: 40px; text-align: center; font-size: 1.5em;}
-
-li a {text-decoration : none; color : #2d2f31;}
-
-.labels{
-    float: right;
-    margin:0;
-}
-nav {
-  width : 300px; 
-
-}
-
-span {
-  padding : 15px;
-  border-radius: 3rem;
-  border: 2px solid #2d2f31;
-  background : white; 
-  color : black;
-  font-size : 1.2em;
-  font-variant : small-caps;
-  cursor : pointer;
-  display: block;
-}
-
-span::after {
-  float: right;
-  right: 10%;
-  content: "+";
-}
-
-.slide {
-  clear:both;
-  width:100%;
-  height:0px;
-  overflow: hidden;
-  text-align: center;
-  transition: height .4s ease;
-}
-
-.slide li {padding : 30px;}
-
-#touch {position: absolute; opacity: 0; height: 0px;}    
-
-#touch:checked + .slide {height: 300px;}  */
 
 .form-control{
 
@@ -84,5 +9,52 @@ span::after {
   font-family : "Open Sans", sans-serif;
   width: 60%;
 
+}
+.title{
+  text-align: center;
+  margin:auto;
+  width: 20%;;
+}
 
+.container{
+  margin-left: 20%; 
+}
+
+@media(min-width:350px){
+  .container {
+    padding-top: 8rem;
+  }
+}
+
+#input-title{
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  /* margin: 3rem auto; */
+  margin-bottom: 2rem;
+  color: black;
+  /* -webkit-text-stroke: 0.5px #eab5a4; */
+}
+
+.post-input{
+  width: 90%;
+  height: 30rem;
+  font-size: 1.5rem;
+  color: black;
+  border-radius: 1rem;
+}
+
+h1 {
+  padding: 40px; 
+  text-align: center; 
+  font-size: 1.5em;
+}
+
+li a {
+  text-decoration : none; 
+  color : #2d2f31;
+}
+
+.post-b {
+  margin-right: 3rem;
 }

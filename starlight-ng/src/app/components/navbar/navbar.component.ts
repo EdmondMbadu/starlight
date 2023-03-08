@@ -11,4 +11,10 @@ export class NavbarComponent {
   @Input() title: string = '';
   @Input() icon:string='';
   @Input() path:string="";
+  communities:boolean=false;
+
+  displayCommunities(event:any){
+    this.communities=!this.communities;
+
+  }
 }

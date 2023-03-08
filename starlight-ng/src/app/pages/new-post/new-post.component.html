@@ -1,43 +1,38 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<app-navbar icon="true" path="/homepage-posts"  title="NEW POST"></app-navbar>
-<app-sidebar></app-sidebar>
-
-<!-- <div class="post">
-   
-    <form action="">  
-        <input id="input-title" type="text" placeholder="TITLE"> 
-        <nav class="labels">
-
-            <label for="touch"><span>LABELS</span></label>               
-            <input type="checkbox" id="touch"> 
-          
-            <ul class="slide">
-              <li><a href="/new-post">Essay</a></li> 
-              <li><a href="#">Fiction</a></li>
-              <li><a href="#">Comedy</a></li>
-              <li><a href="#">Adventure</a></li>
-            </ul>
-          
-          </nav> 
-        <textarea class="post-input"type="text" id="name" name="name" required
-        placeholder="Enter  your text here..."></textarea>
-      
-        <app-greenbtn class="post-b" buttonName="Cancel"(click)="cancelNewPost($event)"></app-greenbtn>
-        <app-greenbtn class="post-b" buttonName="Submit"(click)="createNewPost($event)"></app-greenbtn>
-       
-    </form>
-    
-    
-
-</div> -->
-
+<app-navbar icon="true" path="/homepage-posts" title="NEW POST"></app-navbar>
 
 <div class="container">
-<form>
-  <div class="form-group">
-    <h1>Title</h1>
-    <!-- <label class="post" for="exampleFormControlTextarea1">Example textarea</label> -->
-    <textarea class="form-control"type="text" id="exampleFormControlTextarea1"  placeholder="Start Writting..."rows="20"></textarea>
-  </div>
-</form>
+  <form action="">
+    <div class="row">
+      <div class="col-md-6">
+        <input id="input-title" type="text" placeholder="TITLE"> 
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <select class="form-control">
+            <option value="" >Please select a label</option>
+            <option value="">Fantasy</option>
+            <option value="">Essay</option>
+            <option value="">Fiction</option>
+            <option value="">Comedy</option>
+            <option value="">Horror</option>
+            <option value="">Romance</option>
+            <option value="">Adventure</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-5">
+      <div class="col-md-10">
+        <editor [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
+      </div>
+
+      <div class="col-md-10 text-center mb-5">
+        <!-- <button class="btn btn-info bg-theme">Save Post</button> -->
+        <app-greenbtn class="post-b" buttonName="Cancel"(click)="cancelNewPost($event)"></app-greenbtn>
+        <app-greenbtn class="post-b" buttonName="Submit"(click)="createNewPost($event)"></app-greenbtn>
+      </div>
+    </div>
+  </form>
 </div>

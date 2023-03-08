@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from '@coreui/angular';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ToastModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

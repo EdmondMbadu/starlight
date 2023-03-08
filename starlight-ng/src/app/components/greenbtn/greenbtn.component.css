@@ -7,9 +7,9 @@ button {
     margin: 1rem;
     color: white;
     -webkit-text-stroke: 0.5px #eab5a4;
-    background-color: #5a794f;
+    background-color: #458559;
 }
 
 button:hover{
-    background-color: #304829;
+    background-color: #426a4f;
 }
