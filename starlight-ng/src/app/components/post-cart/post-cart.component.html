@@ -1,44 +1,35 @@
-
-<table class="post-cart-table">
-    <tr>
-      <td><h2 class="cart-title">{{title}}</h2></td>
-      <td><h5 class="cart-date">Date: 03/02/2023</h5></td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <h4 class="text-center">"1984" by George Orwell</h4>  
-        <p class="cart-text">This dystopian novel imagines a future in which the government has complete control over people's lives and thoughts. The story follows a man named Winston Smith, who begins to rebel against the oppressive regime and falls in love with a fellow rebel named Julia.</p>
-      
-    </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="cart-stat">
-          <a (click)="incrementCounter($event)">
-            <!-- <img class="cart-logo" src="../../../assets/img/heart.png" alt=""> -->
-            <i class="bi bi-heart fs-4 cart-logo"></i>
-          </a>
-          <span class="counter">{{counter}}</span>
-          <a (click)="showComments($event)">
-            <!-- <img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""> -->
-            <i class="bi bi-chat fs-4 cart-logo"></i>
-          </a>
-          <a (click)="openDialog()">
-            <!-- <img class="cart-logo" src="../../../assets/img/trash.png" alt=""> -->
-            <i class="bi bi-trash-fill fs-4 cart-logo"></i>
-          </a>
-          <a href="/homepage-posts">
-            <h3 class="cart-topic"> #Essay</h3>
-          </a>
-        </div>
-      </td>
-    </tr>
-  </table>
+<div class="posts-container">
+  <div class="post">
+    <div class="post-head">
+      <h5 class="post-date">03/08/2023</h5>
+    </div>
+    <div class="post-content">
+      <h3 class="post-title">{{title}}</h3>
+      <p class="cart-text">This dystopian novel imagines a future in which the government has complete control over people's lives and thoughts. The story follows a man named Winston Smith, who begins to rebel against the oppressive regime and falls in love with a fellow rebel named Julia.</p>
+    </div>
+    <div class="post-stats">
+      <a (click)="incrementCounter($event)">
+        <i class="bi bi-heart fs-4"></i>
+      </a>
+      <span class="counter cart-logo">{{counter}}</span>
+      <a (click)="showComments($event)">
+        <i class="bi bi-chat fs-4 cart-logo"></i>
+      </a>
+      <a (click)="openDialog()">
+        <i class="bi bi-trash-fill fs-4 cart-logo"></i>
+      </a>
+      <a href="/homepage-posts">
+        <h3 class="post-label"> #Essay</h3>
+      </a>
+    </div>
+  </div>
+</div>
 
 
   <!-- COMMENT SECTION -->
-<div class="container">
+<div class="comment-container">
   <div *ngIf="seeComments" class="comment-section">
+    <!-- list of comments -->
     <div class="post-comment">
       <div class="list">
         <div class="user">
@@ -53,6 +44,8 @@
         <div class="comment-post">Lorem ipsum dolor sit amest</div>
       </div>
     </div>
+
+    <!-- comment box -->
     <div class="comment-box">
       <form action="" method="post">
         <!-- <textarea name="comment" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea> -->

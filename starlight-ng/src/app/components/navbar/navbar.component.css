@@ -114,9 +114,7 @@ li{
   
   @media (max-width: 991.98px) {
     .sidebar {
-
-      width: 50%;
-     
+        width: 50%;
     }
   }
   .sidebar .active {
