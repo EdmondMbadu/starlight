@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from '@coreui/angular';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -47,7 +49,9 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
     BrowserAnimationsModule,
     MatSnackBarModule,
     EditorModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
