@@ -19,16 +19,16 @@ a{
 
 @media (min-width: 990px) {
     .posts-container {
-        margin-left: 25rem;
-        margin-right: 2rem;
+        margin-left: 40%;
+        margin-right: 8rem;
         padding-bottom: 2rem;
         padding-top: 5rem;
     }
 
     /* comment section */
     .comment-section {
-        margin-left:35%;
-        padding-right: 80%;
+        margin-left:42%;
+        padding-right: 70%;
         margin-top: -1.5rem;
         margin-bottom: 2rem;
         width: 30%;
@@ -43,7 +43,7 @@ a{
 
 @media (max-width: 989.99px) {
     .posts-container {
-        margin-left: 2rem;
+        margin-left: 15%;
         padding-bottom: 2rem;
         padding-top: 7rem;
     }
@@ -57,7 +57,7 @@ a{
 
     /* comments section */
     .comment-section {
-        margin-left:9%;
+        margin-left:17%;
         margin-top: -1.5rem;
         width: 65%;
         border-radius: 1rem;
