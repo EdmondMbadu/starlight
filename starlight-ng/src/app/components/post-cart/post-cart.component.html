@@ -13,11 +13,33 @@
     <tr>
       <td colspan="2">
         <div class="cart-stat">
-          <a ><img class="cart-logo" (click)="incrementCounter($event)" src="../../../assets/img/heart.png" alt=""></a>
-          <a class="counter">{{counter}}</a>
+
+          <!-- <a ><img class="cart-logo" (click)="incrementCounter($event)" src="../../../assets/img/heart.png" alt=""></a> -->
+          <!-- <a class="counter">{{counter}}</a>
           <a (click)="showComments($event)"><img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""></a>
           <a (click)="deletePost(currentPost.title)"><img class="cart-logo" src="../../../assets/img/trash.png" alt=""></a>
-          <a><h3 class="cart-topic"> #{{currentPost.label}}</h3></a>
+          <a><h3 class="cart-topic"> #{{currentPost.label}}</h3></a> -->
+          <!-- like button -->
+      <a (click)="incrementCounter($event)">
+        <i class="bi fs-4" [class.bi-heart]="!isActive" [class.bi-heart-fill]="isActive"></i>
+      </a>
+      &nbsp;
+      <span class="counter cart-logo">{{likes}}</span>
+
+      <!-- comment button -->
+      <a (click)="showComments($event)">
+        <i class="bi bi-chat fs-4 cart-logo"></i>
+      </a>
+
+      <!-- delete button -->
+      <a (click)="openDialog()">
+        <i class="bi bi-trash-fill fs-4 cart-logo"></i>
+      </a>
+      
+      <!-- community label -->
+      <a href="/homepage-posts">
+        <h3 class="post-label"> #Essay</h3>
+      </a>
         </div>
       </td>
     </tr>
@@ -43,7 +65,8 @@
     </div>
     <div class="comment-box">
       <form action="" method="post">
-        <!-- <textarea name="comment" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea> -->
+        <textarea name="comment" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea>
+        
         <input class="comment-input" type="text" placeholder="Write a comment...">
         <button class="submit-comment" type="submit"> 
           <i class="bi bi-send"></i>

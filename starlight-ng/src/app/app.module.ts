@@ -4,6 +4,7 @@ import { ToastModule } from '@coreui/angular';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,7 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
     NewPostComponent,
     CommunitiesComponent,
     UpdateProfileComponent,
+    PopUpComponent,
 
   ],
   imports: [
@@ -48,7 +51,8 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
     BrowserAnimationsModule,
     MatSnackBarModule,
     EditorModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
