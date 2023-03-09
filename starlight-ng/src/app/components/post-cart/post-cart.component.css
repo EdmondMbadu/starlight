@@ -10,7 +10,7 @@ a{
 
 /* POST CARD STYLING */
 .post {
-    width: 90%;
+    width: 60%;
     height: auto;
     background-color: #FAEEE5;
     border-radius: 3rem;
@@ -19,7 +19,7 @@ a{
 
 @media (min-width: 990px) {
     .posts-container {
-        margin-left: 20rem;
+        margin-left: 25rem;
         margin-right: 2rem;
         padding-bottom: 2rem;
         padding-top: 5rem;
@@ -27,17 +27,17 @@ a{
 
     /* comment section */
     .comment-section {
-        margin-left:30%;
+        margin-left:35%;
         padding-right: 80%;
         margin-top: -1.5rem;
         margin-bottom: 2rem;
-        width: 60%;
+        width: 30%;
         border-radius: 1rem;
         padding: 1rem;
         background-color: #faf4f0;
     }
     .comment-input {
-        width: 85%;
+        width: 80%;
     }
 }
 
@@ -48,7 +48,7 @@ a{
         padding-top: 7rem;
     }
     .post {
-        width: 90%;
+        width: 80%;
         height: auto;
         background-color: #FAEEE5;
         border-radius: 3rem;
@@ -57,25 +57,28 @@ a{
 
     /* comments section */
     .comment-section {
-        margin-left:8%;
+        margin-left:9%;
         margin-top: -1.5rem;
-        width: 80%;
+        width: 65%;
         border-radius: 1rem;
         padding: 1rem;
         background-color: #faf4f0;
     }
     .comment-input {
-        width: 75%;
+        width: 70%;
     }
 }
-
+.post-author {
+    float: left;
+    font-weight: 500;
+}
 .post-date,
 .post-label {
     float: right;
 }
 
 .post-content {
-    margin-top: 2rem;
+    margin-top: 3rem;
     font-family: sans-serif;
 }
 .post-title {
