@@ -1,6 +1,10 @@
 
 <app-navbar icon="true" path="homepage-posts" title="COMMUNITY"></app-navbar>
 
-<app-post-cart title="Words"></app-post-cart>
-<app-post-cart title="Love"></app-post-cart>
-<app-post-cart title="Suffering"></app-post-cart> 
+<div *ngIf="this.communityType === ''">
+<app-post-cart [currentPost]="cpost"  *ngFor="let cpost of postList"></app-post-cart>
+</div>
+
+<div *ngIf="this.communityType !== ''">
+    <app-post-cart [currentPost]="cpost"  *ngFor="let cpost of postListTagged"></app-post-cart>
+</div>

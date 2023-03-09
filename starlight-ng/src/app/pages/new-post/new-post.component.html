@@ -4,20 +4,22 @@
   <form action="">
     <div class="row">
       <div class="col-md-6">
-        <input id="input-title" type="text" placeholder="TITLE"> 
+        <input id="input-title" type="text"[(ngModel)]="title" name="title" placeholder="TITLE"> 
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <select class="form-control">
+          <select  [(ngModel)]="label" name="selectLabel" class="form-control">
             <option value="" >Please select a label</option>
-            <option value="">Fantasy</option>
-            <option value="">Essay</option>
-            <option value="">Fiction</option>
-            <option value="">Comedy</option>
-            <option value="">Horror</option>
-            <option value="">Romance</option>
-            <option value="">Adventure</option>
+            <option *ngFor="let c of commuunityList">{{c}}</option>
+             
+            <!-- <option [(ngModel)]="label" name="label">Fantasy</option>
+            <option [(ngModel)]="label" name="label">Essay</option>
+            <option [(ngModel)]="label" name="label">Fiction</option>
+            <option [(ngModel)]="label" name="label">Comedy</option>
+            <option [(ngModel)]="label" name="label">Horror</option>
+            <option [(ngModel)]="label" name="label">Romance</option>
+            <option [(ngModel)]="label" name="label">Adventure</option>  -->
           </select>
         </div>
       </div>
@@ -25,7 +27,7 @@
 
     <div class="row mt-3 mb-5">
       <div class="col-md-10">
-        <editor [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
+        <editor [(ngModel)]="content" name="content" [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
       </div>
 
       <div class="col-md-10 text-center mb-5">

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-homepage-posts',
@@ -7,6 +9,18 @@ import { Component } from '@angular/core';
 })
 export class HomepagePostsComponent {
 
-  
+
+  public postList?: Post[];
+
+  constructor(private data: DataService){ 
+  }
+
+  ngOnInit(){
+    this.data.currentListPosts.subscribe(
+      pList=>this.postList= pList
+      );
+
+  }
+
 
 }

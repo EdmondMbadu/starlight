@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Post } from 'src/app/models/post';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { DataService } from 'src/app/services/data.service';
 })
 
 export class NavbarComponent {
-  constructor (private router:Router, private data: DataService){}
+
+  public postList: Post[];
+  post: Post;
 
   @Input() title: string = '';
   @Input() icon:string='';
@@ -18,41 +21,52 @@ export class NavbarComponent {
   @Output()messageEvent= new EventEmitter();
   communities:boolean=false;
   communityType:string="";
+  communityList:string[];
+  constructor (private router:Router, private data: DataService){
+    this.communityList= data.communityList;
+    this.post= new Post();
+    this.postList=[this.post];
 
-
+  }
   ngOnInit(){
     this.data.currentCommunityTag.subscribe(
       community=>this.communityType= community
     );
-
+    this.data.currentListPosts.subscribe(
+      pList=>this.postList= pList
+      );
   }
 
-  communityList:string[]=[
-    "Fantasy",
-    "Commedy",
-    "Fiction",
-    "Horror",
-    "Romance",
-    "Adventure"
-  ];
+  
+  gotoHome(){
+    this.resetTag();
+    this.router.navigate(['homepage-posts']);
+  }
+  goToNewPost(){
+    this.router.navigate(['new-post']);
+  }
 
   displayCommunities(event:any){
+    this.resetTag();
     this.communities=!this.communities;
     this.router.navigate(['communities']);
-
-
+  }
+  resetTag(){
+    this.data.updateCommunityTag("");
   }
 
-  sendCommunityTag(event:string){
-    this.data.updateCommunityTag(event);
-    this.prefix = event.toUpperCase();
-    this.messageEvent.emit(event);
- 
+  sendCommunityTag(tag:string){
+
+    this.data.updateCommunityTag(tag);
+    this.filterTag(tag);
+    this.prefix = tag.toUpperCase();
     this.router.navigate(['communities']);
-    // this.router.navigate(['homepage-posts']);
-
-
-    
-
   }
+
+  filterTag(tag:string){
+   let result = this.postList.filter( cp=> cp.label===tag);
+   this.data.updatePostListTagged(result);
+  }
+
+  
 }

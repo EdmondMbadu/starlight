@@ -1,14 +1,13 @@
 
 <table class="post-cart-table">
     <tr>
-      <td><h2 class="cart-title">{{title}}</h2></td>
-      <td><h5 class="cart-date">Date: 03/02/2023</h5></td>
+      <td><h2 class="cart-title">{{currentPost.author}}</h2></td>
+      <td><h5 class="cart-date">{{currentPost.date}}</h5></td>
     </tr>
     <tr>
       <td colspan="2">
-        <h4 class="text-center">"1984" by George Orwell</h4>  
-        <p class="cart-text">This dystopian novel imagines a future in which the government has complete control over people's lives and thoughts. The story follows a man named Winston Smith, who begins to rebel against the oppressive regime and falls in love with a fellow rebel named Julia.</p>
-      
+        <h4 class="text-center">{{currentPost.title}}</h4>  
+        <p class="cart-text">{{currentPost.content}}</p>
     </td>
     </tr>
     <tr>
@@ -17,8 +16,8 @@
           <a ><img class="cart-logo" (click)="incrementCounter($event)" src="../../../assets/img/heart.png" alt=""></a>
           <a class="counter">{{counter}}</a>
           <a (click)="showComments($event)"><img class="cart-logo" src="../../../assets/img/comment-icon.png" alt=""></a>
-          <a href="/homepage-posts"><img class="cart-logo" src="../../../assets/img/trash.png" alt=""></a>
-          <a><h3 class="cart-topic"> #{{communityType}}</h3></a>
+          <a (click)="deletePost(currentPost.title)"><img class="cart-logo" src="../../../assets/img/trash.png" alt=""></a>
+          <a><h3 class="cart-topic"> #{{currentPost.label}}</h3></a>
         </div>
       </td>
     </tr>

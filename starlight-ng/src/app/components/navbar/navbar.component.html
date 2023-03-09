@@ -3,17 +3,17 @@
   <div class="position-sticky">
     <div class="list-group list-group-flush mx-3 mt-4">
       <a
-        href="homepage-posts"
+        (click)="gotoHome()"
         class="list-group-item list-group-item-action py-3 ripple"
         aria-current="true"
         
       >
-        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Home</span>
+        <span>Home</span>
       </a>
-      <a href="new-post" class="list-group-item list-group-item-action py-3 ripple ">
-        <i class="fas fa-chart-area fa-fw me-3"></i><span>New Post</span>
+      <a (click)="goToNewPost()" class="list-group-item list-group-item-action py-3 ripple ">
+      <span>New Post</span>
       </a>
-      <a href="communities" class="dropdown list-group-item list-group-item-action py-3 ripple "
+      <a class="dropdown list-group-item list-group-item-action py-3 ripple "
       (click)="displayCommunities($event)"
       id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
         <span>Communities</span>

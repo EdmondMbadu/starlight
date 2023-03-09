@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from '@coreui/angular';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +47,8 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
     ToastModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    EditorModule
+    EditorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
