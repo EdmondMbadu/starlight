@@ -44,7 +44,7 @@ export class NewPostComponent {
 
   createNewPost(event:any){
     this.post.title=this.title;
-    this.post.author= "Ananymous";
+    this.post.author= "Anonymous";
     this.post.content= this.content;
     this.post.label= this.label;
     this.post.date= this.getCurrentDate();
@@ -63,7 +63,7 @@ export class NewPostComponent {
   let year = date.getFullYear();
 
   // This arrangement can be altered based on how we want the date's format to appear.
-  let currentDate = `${day}/${month}/${year}`;
+  let currentDate = `${month}/${day}/${year}`;
 
   return currentDate;
 

@@ -6,7 +6,7 @@
         <p id="profile-name" class="profile-name-card"></p>
 
         <!-- LOGIN FORM -->
-        <form (ngSubmit)="gotoHome()" class="form-signin">
+        <form (ngSubmit)="gotoHome()" class="form-signin" ngNativeValidate>
             <div class="error-message">{{ errorMessage }}</div>
             <input type="text" id="email" name="email" class="form-control" placeholder="Email address" [(ngModel)]="email" required>
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password" required>
@@ -15,8 +15,10 @@
         </form><!-- /form -->
 
         <a href="recovery" class="forgot-password">
-            Forgot the password?
+            Forgot password?
         </a>
+        <br>
+        <p class="sign-up">New here? Sign up <a href="registration">now</a>!</p>
     </div><!-- /card-container -->
 </div><!-- /container -->
 

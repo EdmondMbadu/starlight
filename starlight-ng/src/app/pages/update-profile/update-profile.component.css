@@ -1,29 +1,10 @@
-
-/*
- * Specific styles of signin component
- */
 /*
  * General styles
  */
- body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
-}
-
-.card-container.card {
+ .card-container.card {
     max-width: 350px;
     padding: 40px 40px;
     border-radius: 2rem;
-}
-
-.btn {
-    font-weight: 700;
-    height: 36px;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
 }
 
 /*
@@ -133,17 +114,6 @@
     background-color: rgb(12, 97, 33);
 }
 
-.forgot-password {
-    color: rgb(104, 145, 162);
-}
-
-.forgot-password:hover,
-.forgot-password:active,
-.forgot-password:focus{
-    color: rgb(12, 97, 33);
-}
-
-
 /* PROFILE PICTURE STYLING */
 .profile-pic {
     padding-left: 2rem;
@@ -166,7 +136,8 @@ img {
     cursor: pointer;
     height: 200px;
     width: 200px;
-    border: .5px solid grey;
+    /* border: .5px solid grey; */
+    border: none;
     border-radius: 50%;
 }   
 

@@ -19,11 +19,17 @@ export class AuthService {
     return 'working';
   }
 
+  private isLoggedIn = false;
+  public isAuthenticated(): boolean {
+    return this.isLoggedIn;
+  }
+
   login(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // return this.http.post<any>(url, {email, password});
     // return this.http.post<any>(url, {email, password}, {headers});
     // return this.http.post<any>(this.loginUrl, {email, password}, {headers});
+    this.isLoggedIn = true;
     return this.http.post<any>('/api/login', {email, password}, {headers});
   }
 
@@ -37,6 +43,7 @@ export class AuthService {
 
   logout(): Observable<any> {
     // return this.http.get<any>(this.logoutUrl);
+    this.isLoggedIn = false;
     return this.http.get<any>('/api/logout');
   }
 

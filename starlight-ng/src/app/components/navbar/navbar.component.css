@@ -159,3 +159,7 @@ li{
     font-size: 2rem;
 
 }
+
+#logout {
+  cursor: pointer;
+}

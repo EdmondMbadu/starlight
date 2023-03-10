@@ -143,7 +143,7 @@
     color: rgb(12, 97, 33);
 }
 
-/* ERROR MESSAGE */
-.error-message {
-    color: red;
+.sign-up {
+    text-align: center;
+    font-size: small;
 }
