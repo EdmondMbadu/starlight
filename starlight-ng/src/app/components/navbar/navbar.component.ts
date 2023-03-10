@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/models/post';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class NavbarComponent {
   communities:boolean=false;
   communityType:string="";
   communityList:string[];
-  constructor (private router:Router, private data: DataService){
+  constructor (private router:Router, private data: DataService, private authService: AuthService){
     this.communityList= data.communityList;
     this.post= new Post();
     this.postList=[this.post];
@@ -37,6 +38,11 @@ export class NavbarComponent {
       );
   }
 
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/']);
+    });
+  }
   
   gotoHome(){
     this.resetTag();

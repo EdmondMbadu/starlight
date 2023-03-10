@@ -1,5 +1,8 @@
+# general
 node_modules
-backend/backend/__pycache__/
-backend/our_app/__pycache__/
-package-lock.json
 starlight-venv/
+
+# frontend
+package-lock.json
+
+# backend

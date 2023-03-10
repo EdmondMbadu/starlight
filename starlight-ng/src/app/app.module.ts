@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from '@coreui/angular';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,9 @@ import { CommunitiesComponent } from './pages/communities/communities.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
+
+// SERVICES
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -52,9 +56,10 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
     MatSnackBarModule,
     EditorModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

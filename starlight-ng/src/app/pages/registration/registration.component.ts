@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,10 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  constructor(private router: Router) {}
+  email: string = "";
+  password: string = "";
+  first: string = "";
+  last: string = "";
+  errorMessage: string ="";
+
+  constructor (private router:Router, private authService: AuthService){}
   
-  login(event: any) {
-    this.router.navigate(['login']);
+  login() {
+    this.authService.register(this.email, this.first, this.last, this.password)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.router.navigate(['login']);
+        },
+        (error: any) => {
+          console.log(error);
+          this.errorMessage = 'This email belongs to an already existing user';
+        }
+      );
   }
 
 }

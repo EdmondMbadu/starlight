@@ -142,3 +142,8 @@
 .forgot-password:focus{
     color: rgb(12, 97, 33);
 }
+
+/* ERROR MESSAGE */
+.error-message {
+    color: red;
+}
