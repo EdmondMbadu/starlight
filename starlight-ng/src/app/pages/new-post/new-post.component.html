@@ -12,14 +12,6 @@
           <select  [(ngModel)]="label" name="selectLabel" class="form-control">
             <option value="" >Please select a label</option>
             <option *ngFor="let c of commuunityList">{{c}}</option>
-             
-            <!-- <option [(ngModel)]="label" name="label">Fantasy</option>
-            <option [(ngModel)]="label" name="label">Essay</option>
-            <option [(ngModel)]="label" name="label">Fiction</option>
-            <option [(ngModel)]="label" name="label">Comedy</option>
-            <option [(ngModel)]="label" name="label">Horror</option>
-            <option [(ngModel)]="label" name="label">Romance</option>
-            <option [(ngModel)]="label" name="label">Adventure</option>  -->
           </select>
         </div>
       </div>
@@ -27,7 +19,7 @@
 
     <div class="row mt-3 mb-5">
       <div class="col-md-10">
-        <editor [(ngModel)]="content" name="content" [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
+        <editor outputFormat="text"  [(ngModel)]="content" name="content" [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
       </div>
 
       <div class="col-md-10 text-center mb-5">

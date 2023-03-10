@@ -22,3 +22,8 @@ h1{
 .btn-dark{
     border-radius: 2rem;
 }
+
+.main-vid{
+    width: 20rem;
+    height: 10rem;
+}
