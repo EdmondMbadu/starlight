@@ -11,11 +11,12 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
   styleUrls: ['./post-cart.component.css']
 })
 export class PostCartComponent {
-
+  @Input() title: string = '';
   @Input() isActive: boolean = false;
   @Input() likes: number =0;
   @Input() seeComments:boolean=false;
 
+  toDelete:boolean= false;
   communityType:string="Essay";
   titleToDelete:string="";
   post: Post;
@@ -34,11 +35,14 @@ this.data.currentListPosts.subscribe(
   pList=> this.postList= pList
 );
 
+
   }
 
-  openDialog(){
+  openDialog(event: any, title?:string){
+    // console.log("The current title is in dialog", this.currentPost.title);
     this.dialogRef.open(PopUpComponent,{
     });
+    this.data.deleteTitle(title!);
   }
 
   
@@ -46,8 +50,6 @@ this.data.currentListPosts.subscribe(
   @Input ()currentPost: Post= new Post();
 
   counter: number = 0;
-  // seeComments:boolean = false;
-
 
   showComments(event:any){
     this.seeComments=!this.seeComments;
@@ -55,11 +57,5 @@ this.data.currentListPosts.subscribe(
   incrementCounter(event:any){
     this.likes += (this.isActive) ? -1 : 1;
 		this.isActive = !this.isActive;
-  }
-  deletePost(title?:string){
-    console.log("Please delete the post with the title", title);
-   this.postList.splice(this.postList.findIndex(a=> a.title=== title), 1);
-   this.data.updatePostList(this.postList);
-    
   }
 }

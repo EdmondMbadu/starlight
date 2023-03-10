@@ -8,16 +8,20 @@
         aria-current="true"
         
       >
+      <i class="bi bi-house"></i>
         <span>Home</span>
       </a>
       <a (click)="goToNewPost()" class="list-group-item list-group-item-action py-3 ripple ">
+        <i class="bi bi-pen"> </i>
       <span>New Post</span>
       </a>
       <a class="dropdown list-group-item list-group-item-action py-3 ripple "
       (click)="displayCommunities($event)"
       id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-houses"></i>
         <span>Communities</span>
-       <img class="dropdown" src="../../../assets/img/dropdownimg.png" alt="">
+        <img class="dropdown" src="../../../assets/img/dropdownimg.png" alt="">
+       <!-- <i class="bi bi-chevron-down"></i> -->
       </a>
       <div *ngIf="communities"class="dropdown-container">
         <a *ngFor="let c of communityList" class="dropdown-item" (click)="sendCommunityTag(c)">{{c}}</a>

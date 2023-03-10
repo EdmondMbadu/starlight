@@ -101,7 +101,7 @@ li{
     left: 0;
     padding: 68px 0 0; /* Height of navbar */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 240px;
+    width: 16.5rem;
     z-index: 600;
   }
   
@@ -127,7 +127,7 @@ li{
   }
   .list-group-item{
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 550;
     padding-bottom: 5rem;
   }
   .list-group-item:hover{
@@ -145,4 +145,17 @@ li{
     margin-left: 1rem;
     width: 1rem;;
   }
+  .bi-house,
+  .bi-pen,
+  .bi-houses {
+      margin-right: .5rem;
+  }
+  
+  .bi-chevron-down {
+      margin-left: .5rem;
+  }
+.bi-person{
+    color: white;
+    font-size: 2rem;
 
+}

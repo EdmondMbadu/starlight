@@ -12,7 +12,7 @@ export class DataService {
   public postList: Post[];
 
   private communityTag= new BehaviorSubject<string>("");
-  private postToDelete= new BehaviorSubject<string>("");
+  private titleToDelete= new BehaviorSubject<string>("");
   private post = new Post();
   private postsList= new BehaviorSubject<Post[]>([this.post]);
   private postsListTagged= new BehaviorSubject<Post[]>([this.post]);
@@ -27,7 +27,7 @@ export class DataService {
   ];
 
   currentCommunityTag= this.communityTag.asObservable();
-  titleOfPostToDelete= this.postToDelete.asObservable();
+  currentTitleToDelete = this.titleToDelete.asObservable();
   currentListPosts = this.postsList.asObservable();
   currentListTaggedPosts = this.postsListTagged.asObservable();
 
@@ -73,5 +73,8 @@ export class DataService {
   updatePostListTagged(postTag:Post[]){
     this.postsListTagged.next(postTag);
 
+  }
+  deleteTitle(title:string){
+    this.titleToDelete.next(title);
   }
 }
