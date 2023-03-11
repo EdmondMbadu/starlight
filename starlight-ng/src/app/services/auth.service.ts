@@ -13,42 +13,58 @@ export class AuthService {
   private logoutUrl = 'http://localhost:5000/api/logout';
   private dataUrl = 'http://localhost:5000/api/data';
 
-  constructor(private http: HttpClient) {}
+  private loggedIn  = false;
+  private tokenKey = 'my-auth-token';
+
+  constructor(private http: HttpClient) {
+    this.loggedIn  = !!localStorage.getItem('access_token');
+  }
 
   test(): string {
     return 'working';
   }
 
-  private isLoggedIn = false;
-  public isAuthenticated(): boolean {
-    return this.isLoggedIn;
+  isLoggedIn(): boolean {
+    // return this.loggedIn;
+    const token = localStorage.getItem(this.tokenKey); // Get token from local storage
+    return token != null;
+  }
+
+  getToken() {
+    return localStorage.getItem(this.tokenKey);
+  }
+
+  setToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
   }
 
   login(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    // return this.http.post<any>(url, {email, password});
-    // return this.http.post<any>(url, {email, password}, {headers});
-    // return this.http.post<any>(this.loginUrl, {email, password}, {headers});
-    this.isLoggedIn = true;
+    this.loggedIn  = true;
     return this.http.post<any>('/api/login', {email, password}, {headers});
+    // .subscribe(
+    //   (response: any) => {
+    //     const token = response.token;
+    //     localStorage.setItem(this.tokenKey, token);
+    //   },
+    //   (error: any) => {
+    //     console.error('Error logging in:', error);
+    //   }
+    // );
   }
 
   register(email: string, first:string, last:string, password: string): Observable<any> {
     let url: string = `${this.BASE_URL}/register`; //`${this.apiBaseUrl}/register`
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    // return this.http.post(url, {email, first, last, password});
-    // return this.http.post<any>(this.registerUrl, { email, first, last, password }, { headers });
     return this.http.post<any>('/api/register', { email, first, last, password }, { headers });
   }
 
   logout(): Observable<any> {
-    // return this.http.get<any>(this.logoutUrl);
-    this.isLoggedIn = false;
+    localStorage.removeItem(this.tokenKey);
     return this.http.get<any>('/api/logout');
   }
 
   getData(): Observable<any> {
-    // return this.http.get<any>(this.dataUrl);
     return this.http.get<any>('/api/data');
   }
 }

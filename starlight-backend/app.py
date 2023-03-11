@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask_login import login_required, logout_user
 from models import db, login, UserModel
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager, create_access_token
 
 # from db import Database
 
@@ -11,6 +12,7 @@ from flask_migrate import Migrate
 
 app = Flask(__name__) # name for the Flask app (refer to output)
 app.config['SECRET_KEY'] = 'xyz##s3crwtK*'
+app.config['JWT_SECRET_KEY'] = 's3cr3!#&7-21jhF'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///starlight.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -18,8 +20,10 @@ CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}})
 
 db.init_app(app)
 migrate = Migrate(app, db)
+jwt = JWTManager(app)
 login.init_app(app)
 login.login_view = 'login'
+
 
 @app.before_first_request
 def create_table():
@@ -35,7 +39,8 @@ def login():
         user = UserModel.query.filter_by(email=email).first()
         if user and user.check_password(password):
             session['user_id'] = user.id
-            return jsonify({'message': 'Login is successfull'}), 200
+            access_token = create_access_token(identity=email)
+            return jsonify({'message': 'Login is successfull', 'token': access_token}), 200
         else:
             return jsonify({'error': 'Invalid username or password'}), 401
 

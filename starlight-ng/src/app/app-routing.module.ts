@@ -11,6 +11,8 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
+import { AuthGuard } from './services/auth.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -35,18 +37,22 @@ const routes: Routes = [
   {
     path:'homepage-posts',
     component:HomepagePostsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'new-post',
     component: NewPostComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'communities',
-    component:CommunitiesComponent
+    component:CommunitiesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'update-profile',
-    component:UpdateProfileComponent
+    component:UpdateProfileComponent,
+    canActivate: [AuthGuard]
   }
 
 ];

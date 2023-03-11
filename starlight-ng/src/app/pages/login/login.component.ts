@@ -25,12 +25,14 @@ export class LoginComponent {
     .subscribe(
       (response: any) => {
         console.log(response);
+        const token = response.token;
+        this.authService.setToken(token);
         this.router.navigate(['homepage-posts']);
       },
       (error: any) => {
-        console.log(error);
+        console.log('Login failed: ', error);
         this.errorMessage = 'Invalid username or password';
       }
     );
-    }
+  }
 }
