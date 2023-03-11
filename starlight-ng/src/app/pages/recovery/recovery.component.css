@@ -137,10 +137,12 @@
 .forgot-password {
     color: rgb(104, 145, 162);
     margin: 0rem;
+    text-align: center;
 }
 
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
     color: rgb(12, 97, 33);
+    
 }

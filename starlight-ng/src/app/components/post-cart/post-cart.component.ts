@@ -3,6 +3,7 @@ import { Post } from 'src/app/models/post';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import { Route, Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class PostCartComponent {
   post: Post;
   public postList: Post[];
   
-  constructor(private data: DataService, private dialogRef : MatDialog){
+  constructor(private data: DataService, private dialogRef : MatDialog, private router: Router){
     this.post= new Post();
     this.postList=[this.post];
   }
@@ -50,6 +51,12 @@ this.data.currentListPosts.subscribe(
   @Input ()currentPost: Post= new Post();
 
   counter: number = 0;
+
+  sendCommunityTag(tag:string){
+
+    this.data.updateCommunityTag(tag);
+    this.router.navigate(['communities']);
+  }
 
   showComments(event:any){
     this.seeComments=!this.seeComments;

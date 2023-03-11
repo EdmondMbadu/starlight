@@ -35,10 +35,7 @@ export class PopUpComponent {
 
     console.log("Please delete the post with the title", this.titleToDelete);
     this.postList.splice(this.postList.findIndex(a=> a.title=== this.titleToDelete), 1);
-    this.data.updatePostList(this.postList);
-    
-    
-    
+    this.data.updatePostList(this.postList); 
     this.router.navigate(['homepage-posts']);
   }
 
