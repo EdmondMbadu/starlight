@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+// classes
 import { Post } from 'src/app/models/post';
+// services
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 
@@ -35,7 +37,7 @@ export class NavbarComponent {
     );
     this.data.currentListPosts.subscribe(
       pList=>this.postList= pList
-      );
+    );
   }
 
   logout() {

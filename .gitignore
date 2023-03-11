@@ -6,4 +6,3 @@ node_modules
 package-lock.json
 
 # backend
-starlight-backend/__pychache__

@@ -11,14 +11,15 @@
             <br/>
             <input id="fileInput" type='file' (change)="onSelectFile($event)">
         </div>
-        <form class="form-signin">
-            <input type="text" id="first-name" class="form-control" placeholder="First Name" required >
-            <input type="text" id="last-name" class="form-control" placeholder="Last Name" required >
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required >
-            <input type="password" id="inputPassword" class="form-control" placeholder="Old Password" required>
-            <input type="password" id="inputConfirmPassword" class="form-control" placeholder="New Password" required>
-            <button class="btn btn-lg btn-success btn-block btn-signin" type="submit" (click)="updateProfile($event)">Update Profile</button>
-            <button class="btn btn-lg btn-success btn-block btn-signin" type="cancel" (click)="goToHome($event)">Cancel</button>
+        <form *ngIf="user" (ngSubmit)="updateProfile()" class="form-signin">
+            <div class="error-message">{{ message }}</div>
+            <input type="text" [(ngModel)]="user.first" name="first" id="first-name" class="form-control" value="{{user.first}}">
+            <input type="text" [(ngModel)]="user.last" name="last" id="last-name" class="form-control" value={{user.last}}>
+            <input type="email" [(ngModel)]="user.email" name="email" id="inputEmail" class="form-control" value={{user.email}} readonly >
+            <input type="password" id="inputPassword" class="form-control" placeholder="Old Password">
+            <input type="password" [(ngModel)]="user.password" name="password" id="inputConfirmPassword" class="form-control" placeholder="New Password" required>
+            <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Update Profile</button>
+            <button class="btn btn-lg btn-success btn-block btn-signin" type="cancel" (click)="goToHome()">Cancel</button>
         </form><!-- /form -->
     </div><!-- /card-container -->
 </div><!-- /container -->

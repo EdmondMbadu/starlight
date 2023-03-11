@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,24 +44,14 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.loggedIn  = true;
-    return this.http.post<any>('/api/login', {email, password}, {headers});
-    // .subscribe(
-    //   (response: any) => {
-    //     const token = response.token;
-    //     localStorage.setItem(this.tokenKey, token);
-    //   },
-    //   (error: any) => {
-    //     console.error('Error logging in:', error);
-    //   }
-    // );
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>('/api/login', {email, password}, httpOptions);
   }
 
   register(email: string, first:string, last:string, password: string): Observable<any> {
     let url: string = `${this.BASE_URL}/register`; //`${this.apiBaseUrl}/register`
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>('/api/register', { email, first, last, password }, { headers });
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>('/api/register', { email, first, last, password }, httpOptions);
   }
 
   logout(): Observable<any> {

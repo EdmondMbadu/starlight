@@ -45,6 +45,16 @@ def login():
             return jsonify({'error': 'Invalid username or password'}), 401
 
 
+@app.route('/api/current_user')
+def get_current_user():
+    user_id = session.get('user_id')
+    if user_id:
+        user_data = UserModel.query.filter_by(id=user_id).first()
+        return jsonify(user_data.serialize())
+    else:
+        return jsonify({'error': 'Not authorized, user not logged in'})
+
+
 @app.route('/api/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -77,6 +87,54 @@ def data():
 def logout():
     session.pop('user_id', None)
     return jsonify({'message': 'Logged out successfully'}), 200
+
+
+# @app.route('/api/users/<int:id>', methods=['PUT'])
+@app.route('/api/update-profile', methods=['PUT'])
+def update_profile():
+    # if request.method == 'PUT':
+    user_id = session.get('user_id')
+    if user_id:
+        user = UserModel.query.filter_by(id=user_id).first()
+        data = request.get_json()
+        # user = UserModel.query.filter_by(id=id).first()
+        password = data['old-password']
+        
+        if user.check_password(password):
+            user.first = data['first']
+            user.last = data['last']
+            new_password = data['new-password']
+            user.set_password(new_password)
+            
+            # db.session.add(user)
+            db.session.commit()
+            return jsonify({'message': 'Profile updated successfully'})
+        else:
+            return jsonify({'error': 'Old password does not match our records'})
+        
+    else:
+        return jsonify({'error': 'Not authorized, user not logged in'})
+
+    
+    
+
+@app.route('/api/users', methods=['GET'])
+def get_all_users():
+    users = UserModel.query.all()
+    user_list = []
+    for user in users:
+        user_list.append(user.serialize())
+    return jsonify(user_list)
+    
+
+@app.route('/api/users/<int:id>', methods=['GET'])
+def get_user_by_id(id):
+    user = UserModel.query.filter_by(id=id).first()
+    if user:
+        return jsonify(user.serialize())
+    else:
+        return jsonify({'error': 'User not found by id', 'message':id}), 404
+
 
 # running the server
 if __name__ == '__main__':
