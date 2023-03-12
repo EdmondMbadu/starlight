@@ -10,6 +10,7 @@ import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.co
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { CommunitiesComponent } from './pages/communities/communities.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { CommunityLabelComponent } from './pages/community-label/community-label.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -36,7 +37,7 @@ const routes: Routes = [
   },
   {
     path:'homepage-posts',
-    component:HomepagePostsComponent,
+    component: HomepagePostsComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -44,14 +45,19 @@ const routes: Routes = [
     component: NewPostComponent,
     canActivate: [AuthGuard]
   },
+  // {
+  //   path:'communities',
+  //   component: CommunitiesComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
-    path:'communities',
-    component:CommunitiesComponent,
+    path:'communities/:label',
+    component: CommunityLabelComponent,
     canActivate: [AuthGuard]
   },
   {
     path:'update-profile',
-    component:UpdateProfileComponent,
+    component: UpdateProfileComponent,
     canActivate: [AuthGuard]
   }
 

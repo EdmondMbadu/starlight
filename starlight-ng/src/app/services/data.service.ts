@@ -16,10 +16,11 @@ export class DataService {
   private post = new Post();
   private postsList= new BehaviorSubject<Post[]>([this.post]);
   private postsListTagged= new BehaviorSubject<Post[]>([this.post]);
+  
   communityList:string[]=[
     "Fantasy",
     "Essay",
-    "Commedy",
+    "Comedy",
     "Fiction",
     "Horror",
     "Romance",

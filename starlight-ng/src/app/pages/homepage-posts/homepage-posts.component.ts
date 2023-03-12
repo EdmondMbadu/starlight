@@ -14,9 +14,14 @@ export class HomepagePostsComponent {
 
 
   public postList?: Post[];
-  posts?:Post[];
+  posts:Post[];
 
-  constructor(private data: DataService, private authService: AuthService, private postService:PostService, private datePipe: DatePipe){ 
+  constructor(
+    private data: DataService, 
+    private authService: AuthService, 
+    private postService:PostService, 
+    private datePipe: DatePipe
+  ){ 
   }
 
   getData() {
@@ -30,11 +35,11 @@ export class HomepagePostsComponent {
 
     this.postService.getUserPosts().subscribe(
       (response: Post[]) => {
-        console.log("getUserPosts returns: " + response[0].id);
-        this.posts = response.map(post => ({
-          ...post,
-          created_at: this.datePipe.transform(post.created_at, 'MM/dd/yyyy')
-        }));
+        this.posts = response;
+        // response.map(post => ({
+        //   ...post,
+        //   created_at: this.datePipe.transform(post.created_at, 'MM/dd/yyyy')
+        // }));
       },
       (error) => {
         console.log("error retrieving posts: ", error);

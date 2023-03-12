@@ -29,6 +29,7 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 // SERVICES
 import { AuthService } from './services/auth.service';
+import { CommunityLabelComponent } from './pages/community-label/community-label.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AuthService } from './services/auth.service';
     CommunitiesComponent,
     UpdateProfileComponent,
     PopUpComponent,
+    CommunityLabelComponent,
 
   ],
   imports: [

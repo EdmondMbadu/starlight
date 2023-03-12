@@ -55,9 +55,9 @@ export class NavbarComponent {
   }
 
   displayCommunities(event:any){
-    this.resetTag();
+    // this.resetTag();
     this.communities=!this.communities;
-    this.router.navigate(['communities']);
+    // this.router.navigate(['communities']);
   }
   resetTag(){
     this.data.updateCommunityTag("");

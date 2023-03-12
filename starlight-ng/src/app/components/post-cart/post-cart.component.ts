@@ -7,6 +7,7 @@ import { PostService } from 'src/app/services/post.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -38,6 +39,7 @@ export class PostCartComponent {
     private postService: PostService,
     private router: Router,
     private route: ActivatedRoute,
+    private datePipe: DatePipe
   ) {
     this.post= new Post();
     this.user = new User();
@@ -50,6 +52,10 @@ export class PostCartComponent {
     this.getUser();
 
     this.getPostLikes();
+
+    console.log("currentPost created_at = " + this.currentPost.created_at);
+    this.currentPost.created_at = this.datePipe.transform(this.currentPost.created_at, 'MM/dd/yyyy')
+    
 
     console.log("current post id = " + this.currentPost.author_name);
     this.data.currentCommunityTag.subscribe(

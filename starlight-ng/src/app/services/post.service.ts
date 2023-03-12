@@ -20,6 +20,10 @@ export class PostService {
     return this.http.get<Post[]>('/api/posts');
   }
 
+  getPostsByLabel(label:string): Observable<Post[]> {
+    return this.http.get<Post[]>(`/api/posts?label=${label}`);
+  }
+
   getUserPosts(): Observable<Post[]> {
     // return this.http.get<Post[]>(this.postsApiUrl);
     return this.http.get<Post[]>('/api/user-posts');

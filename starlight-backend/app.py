@@ -163,7 +163,12 @@ def create_new_post():
             
 @app.route('/api/posts', methods=['GET'])
 def get_all_posts():
-    posts = PostModel.query.all()
+    label = request.args.get('label')
+    if label:
+        posts = PostModel.query.filter_by(label=label).all()
+    else:
+        posts = PostModel.query.all()
+        
     post_list = []
     for post in posts:
         post_list.append(post.serialize())
@@ -192,6 +197,7 @@ def get_post_by_id(post_id):
         return jsonify(post.serialize())
     else:
         return jsonify({'error': 'Post not found by post_id', 'message':id}), 404
+
 
 #liking a post
 @app.route('/api/posts/<int:post_id>/like', methods=['POST'])
