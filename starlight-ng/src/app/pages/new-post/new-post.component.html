@@ -1,15 +1,15 @@
 <app-navbar icon="true" path="/homepage-posts" title="NEW POST"></app-navbar>
 
 <div class="container">
-  <form action="">
+  <form (ngSubmit)="createNewPost()" action="">
     <div class="row">
       <div class="col-md-6">
-        <input id="input-title" type="text"[(ngModel)]="title" name="title" placeholder="TITLE"> 
+        <input id="input-title" type="text" [(ngModel)]="newPost.title" name="title" placeholder="TITLE"> 
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <select  [(ngModel)]="label" name="selectLabel" class="form-control">
+          <select  [(ngModel)]="newPost.label" name="label" class="form-control">
             <option value="" >Please select a label</option>
             <option *ngFor="let c of commuunityList">{{c}}</option>
           </select>
@@ -19,13 +19,15 @@
 
     <div class="row mt-3 mb-5">
       <div class="col-md-10">
-        <editor outputFormat="text"  [(ngModel)]="content" name="content" [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
+        <editor outputFormat="text" [(ngModel)]="newPost.content" name="content" [init]="{ plugins: 'lists link image table code help wordcount' }"></editor>
       </div>
 
       <div class="col-md-10 text-center mb-5">
         <!-- <button class="btn btn-info bg-theme">Save Post</button> -->
-        <app-greenbtn class="post-b" buttonName="Cancel"(click)="cancelNewPost($event)"></app-greenbtn>
-        <app-greenbtn class="post-b" buttonName="Submit"(click)="createNewPost($event)"></app-greenbtn>
+        <!-- <app-greenbtn class="post-b" buttonName="Cancel"(click)="cancelNewPost($event)"></app-greenbtn>
+        <app-greenbtn class="post-b" buttonName="Submit"></app-greenbtn> -->
+        <button class="btn btn-lg btn-success btn-block" type="submit" (click)="cancelNewPost($event)">Cancel</button>
+        <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
       </div>
     </div>
   </form>

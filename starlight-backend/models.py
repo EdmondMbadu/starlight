@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, LoginManager
 from datetime import datetime
+from sqlalchemy.orm import backref
 
 login = LoginManager()
 db = SQLAlchemy()
@@ -21,6 +22,9 @@ class UserModel(UserMixin, db.Model):
     def check_password(self,password):
         return check_password_hash(self.password_hash,password)
     
+    def get_full_name(self):
+        return f"{self.first} {self.last}"
+    
     def serialize(self):
         return {
             'id': self.id,
@@ -33,25 +37,41 @@ class PostModel(db.Model):
     __tablename__ = 'posts'
  
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    author = db.Column(db.String(80), unique=True, nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    author_name = db.Column(db.String(255))
+    author = db.relationship('UserModel', backref=backref('users', lazy=True))
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     likes = db.Column(db.Integer, nullable=False)
+    # likes = db.relationship
     label = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
  
-    @property
     def serialize(self):
         return {
             'id': self.id,
             'title': self.title,
-            'author': self.author,
+            'author_id': self.author_id,
+            'author_name': self.author_name,
             'content': self.content,
             'likes': self.likes,
             'label': self.label,
             'created_at': self.created_at,
         }
         
+class Like(db.Model):
+    __tablename__ = 'likes'
+    id = db.Column(db.Integer, primary_key=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'post_id': self.post_id,
+        }
+    
     
 @login.user_loader
 def load_user(id):

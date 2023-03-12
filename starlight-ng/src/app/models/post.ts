@@ -1,10 +1,12 @@
 export class Post {
 
-    author?:string;
+    id?: number;
+    author_name?:string;
+    author_id?: number;
     title?:string;
-    date?:string;
+    created_at?:string;
     content?:string;
     label?:string;
-
+    likes?:number;
 
 }

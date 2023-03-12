@@ -13,13 +13,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  user: User = new User;
+  user: User;
   message: string ="";
   @Input() url: string | ArrayBuffer | null | undefined;
 Update: any;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {
+    this.user = new User();
+  }
 
   ngOnInit() {
     this.getUser();
@@ -29,7 +31,11 @@ Update: any;
 	getUser(): void {
     this.userService.getUserData().subscribe(
       (data) => {
-        this.user = data;
+        // this.user = data;
+        this.user.email = data.email;
+        this.user.first = data.first;
+        this.user.last = data.last;
+        this.user.id = data.id;
         console.log("gerUserData return: ", this.user);
       }
     )
@@ -43,8 +49,7 @@ Update: any;
   updateProfile() {
     this.userService.updateUser(this.user).subscribe(
       (response:any) => {
-        console.log(response);
-        this.user = response;
+        console.log("updateProfile response = " + response.first);
         // alert('Profile updated successfully');
         this.message = "Profile updated successfully!";
         this.router.navigate(['update-profile']);

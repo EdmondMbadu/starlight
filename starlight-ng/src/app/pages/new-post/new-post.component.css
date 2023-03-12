@@ -52,3 +52,19 @@ li a {
 .post-b {
   margin-right: 3rem;
 }
+
+.btn {
+  padding: 0px;
+  font-weight: 300;
+  font-size: 14px;
+  height: 2.5rem;
+  width: 12rem;
+  border-radius: 2rem;
+  border: none;
+  margin-right: 3rem;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: rgb(12, 97, 33);
+}

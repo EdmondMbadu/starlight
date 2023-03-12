@@ -1,8 +1,8 @@
 <div class="posts-container">
     <div class="post">
       <div class="post-head">
-        <h4 class="post-author">{{currentPost.author}}</h4>
-        <h5 class="post-date">{{currentPost.date}}</h5>
+        <h4 class="post-author">{{currentPost.author_name}}</h4>
+        <h5 class="post-date">{{currentPost.created_at}}</h5>
       </div>
       <div class="post-content">
         <h3 class="post-title">{{currentPost.title}}</h3>
@@ -12,11 +12,11 @@
       </div>
       <div class="post-stats">
         <!-- like button -->
-        <a (click)="incrementCounter($event)">
-          <i class="bi fs-4" [class.bi-heart]="!isActive" [class.bi-heart-fill]="isActive"></i>
+        <a (click)="toggleLike()">
+          <i class="bi fs-4" [class.bi-heart]="!isLiked" [class.bi-heart-fill]="isLiked"></i>
         </a>
         &nbsp;
-        <span class="counter cart-logo">{{likes}}</span>
+        <span class="counter cart-logo">{{currentPost.likes}}</span>
   
         <!-- comment button -->
         <a (click)="showComments($event)">
@@ -24,7 +24,7 @@
         </a>
   
         <!-- delete button -->
-        <a (click)="openDialog($event, currentPost.title)">
+        <a (click)="deletePost(currentPost)">
           <i class="bi bi-trash-fill fs-4 cart-logo"></i>
         </a>
         

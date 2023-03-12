@@ -3,8 +3,8 @@
     this post?
 </h2>
 <mat-dialog-actions>
-    <!-- <app-greenbtn mat-dialog-close buttonName="Cancel" (click)="goToHome($event)"></app-greenbtn>
-    <app-greenbtn mat-dialog-close buttonName="Yes" (click)="deletePost($event)"></app-greenbtn> -->
-    <button mat-dialog-close class="btn btn-lg btn-success btn-block" type="submit" (click)="goToHome($event)">Cancel</button>
-    <button mat-dialog-close class="btn btn-lg btn-success btn-block" type="submit" (click)="deletePost($event)">Yes</button>
+    <!-- <button [mat-dialog-close]="false" class="btn btn-lg btn-success btn-block" type="submit" (click)="goToHome($event)">Cancel</button>
+    <button [mat-dialog-close]="true" class="btn btn-lg btn-success btn-block" type="submit" (click)="deletePost($event)">Yes</button> -->
+    <button [mat-dialog-close]="false" class="btn btn-lg btn-success btn-block">Cancel</button>
+    <button [mat-dialog-close]="true" class="btn btn-lg btn-success btn-block">Yes</button>
 </mat-dialog-actions>
