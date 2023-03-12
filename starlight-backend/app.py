@@ -96,29 +96,27 @@ def get_current_user():
 
 @app.route('/api/update-profile', methods=['PUT'])
 def update_profile():
-    # if request.method == 'PUT':
     user_id = session.get('user_id')
-    if user_id:
-        user = UserModel.query.filter_by(id=user_id).first()
-        data = request.get_json()
-        # user = UserModel.query.filter_by(id=id).first()
-        password = data['old-password']
-        
-        if user.check_password(password):
-            user.first = data['first']
-            user.last = data['last']
-            new_password = data['new-password']
-            user.set_password(new_password)
-            
-            # db.session.add(user)
-            db.session.commit()
-            return jsonify({'message': 'Profile updated successfully'})
-        else:
-            return jsonify({'error': 'Old password does not match our records'})
-        
+    user = UserModel.query.filter_by(id=user_id).first()
+    
+    if user is None:
+        return jsonify({'error': 'User not found'}), 404
+    
+    data = request.json
+    
+    if 'first' in data:
+        user.first = data['first']
+    if 'last' in data:
+        user.last = data['last']
+    if 'password' in data:
+        user.set_password(data['password'])
+
+    if 'first' in data or 'last' in data or 'password' in data:
+        db.session.commit()
+        return jsonify({'message': 'Profile updated successfully!'})
     else:
-        return jsonify({'error': 'Not authorized, user not logged in'})
- 
+        return jsonify({'message': 'Nothing was changed.'})
+
     
 @app.route('/api/users', methods=['GET'])
 def get_all_users():
@@ -169,10 +167,9 @@ def get_all_posts():
     else:
         posts = PostModel.query.all()
         
-    post_list = []
-    for post in posts:
-        post_list.append(post.serialize())
-    return jsonify(post_list)
+    post_list = [post.serialize() for post in posts]
+    sorted_posts = sorted(post_list, key=lambda x: x['created_at'], reverse=True)
+    return jsonify(sorted_posts)
     
 
 @app.route('/api/user-posts', methods=['GET'])
@@ -180,9 +177,7 @@ def get_user_posts():
     user_id = session.get('user_id')
     if user_id:
         posts = PostModel.query.filter_by(author_id=user_id)
-        post_list = []
-        for post in posts:
-            post_list.append(post.serialize())
+        post_list = [post.serialize() for post in posts]
             
         sorted_posts = sorted(post_list, key=lambda x: x['created_at'], reverse=True)
         return jsonify(sorted_posts)
@@ -219,7 +214,7 @@ def like_post(post_id):
         db.session.commit()
         
         # Decrement the number of likes for that post
-        post = PostModel.query.get(post_id)
+        post = PostModel.query.fi(post_id)
         post.likes = Like.query.filter_by(post_id=post_id).count()
         db.session.commit()
     

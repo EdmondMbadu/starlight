@@ -43,7 +43,7 @@ export class UserService {
     // const url = `${this.apiUrl}/${user.id}`
     // return this.http.put(this.userUrl + '/update', user, httpOptions);
     // return this.http.put<User>(url, user, httpOptions);
-    return this.http.put<User>(this.updateUrl, user, httpOptions);
+    return this.http.put<User>('/api/update-profile', user, httpOptions);
   
   }
 }

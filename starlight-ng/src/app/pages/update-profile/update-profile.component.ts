@@ -15,6 +15,7 @@ export class UpdateProfileComponent implements OnInit {
 
   user: User;
   message: string ="";
+  oldPassword:string = "";
   @Input() url: string | ArrayBuffer | null | undefined;
 Update: any;
 
@@ -49,9 +50,9 @@ Update: any;
   updateProfile() {
     this.userService.updateUser(this.user).subscribe(
       (response:any) => {
-        console.log("updateProfile response = " + response.first);
+        console.log("updateProfile response = " + response.message);
         // alert('Profile updated successfully');
-        this.message = "Profile updated successfully!";
+        this.message = response.message;
         this.router.navigate(['update-profile']);
       },
       (error:any) => {
