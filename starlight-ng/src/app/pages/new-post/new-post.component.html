@@ -9,8 +9,9 @@
 
       <div class="col-md-4">
         <div class="form-group">
+          <p class="label">Please select a label</p>
           <select  [(ngModel)]="newPost.label" name="label" class="form-control">
-            <option value="" >Please select a label</option>
+            <!-- <option value="" >Please select a label</option> -->
             <option *ngFor="let c of commuunityList">{{c}}</option>
           </select>
         </div>

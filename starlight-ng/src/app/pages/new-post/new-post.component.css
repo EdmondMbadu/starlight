@@ -17,12 +17,18 @@
 }
 
 .container{
-  margin-left: 20%; 
+  margin-left: 25%; 
 }
 
 @media(min-width:350px){
   .container {
     padding-top: 8rem;
+  }
+}
+
+@media(max-width:991px) {
+  .container {
+    margin-left: 20%;
   }
 }
 
@@ -36,7 +42,12 @@
   /* -webkit-text-stroke: 0.5px #eab5a4; */
 }
 
-
+.label {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: medium;
+}
 
 h1 {
   padding: 40px; 
