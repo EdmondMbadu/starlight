@@ -8,7 +8,6 @@ import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
-import { CommunitiesComponent } from './pages/communities/communities.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { CommunityLabelComponent } from './pages/community-label/community-label.component';
 
@@ -45,11 +44,6 @@ const routes: Routes = [
     component: NewPostComponent,
     canActivate: [AuthGuard]
   },
-  // {
-  //   path:'communities',
-  //   component: CommunitiesComponent,
-  //   canActivate: [AuthGuard]
-  // },
   {
     path:'community/:label',
     component: CommunityLabelComponent,

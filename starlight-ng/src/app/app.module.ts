@@ -20,7 +20,6 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { HomepagePostsComponent } from './pages/homepage-posts/homepage-posts.component';
 import { PostCartComponent } from './components/post-cart/post-cart.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
-import { CommunitiesComponent } from './pages/communities/communities.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
@@ -45,7 +44,6 @@ import { DataService } from './services/data.service';
     HomepagePostsComponent,
     PostCartComponent,
     NewPostComponent,
-    CommunitiesComponent,
     UpdateProfileComponent,
     PopUpComponent,
     CommunityLabelComponent,
