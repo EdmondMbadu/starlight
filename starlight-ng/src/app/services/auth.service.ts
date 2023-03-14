@@ -55,6 +55,23 @@ export class AuthService {
     return this.http.post<any>('/api/register', { email, first, last, password }, httpOptions);
   }
 
+  forgotPassword(email: string): Observable<any> {
+    // const url = `${this.BASE_URL}/forgot_password`;
+    // return this.http.post(url, { email });
+    return this.http.post<any>('/api/forgot_password', { email });
+  }
+
+  resetPassword(userId:number, newPassword:string, confirmPassword:string): Observable<any> {
+    // const url = `${this.BASE_URL}/forgot_password`;
+    // return this.http.post(url, { email });
+    const body = {
+      user_id: userId,
+      new_password: newPassword,
+      confirm_password: confirmPassword
+    };
+    return this.http.post<any>('/api/reset_password', body);
+  }
+
   logout(): Observable<any> {
     localStorage.removeItem(this.tokenKey);
     return this.http.get<any>('/api/logout');

@@ -32,7 +32,7 @@ const routes: Routes = [
     component: RecoveryComponent,
   },
   {
-    path: 'change-password',
+    path: 'change-password/:user_id',
     component: ChangePasswordComponent,
   },
   {

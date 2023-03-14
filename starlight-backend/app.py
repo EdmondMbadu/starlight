@@ -87,6 +87,40 @@ def logout():
     return jsonify({'message': 'Logged out successfully'}), 200
 
 
+@app.route('/api/forgot_password', methods=['POST'])
+def forgot_password():
+    data = get_data()
+    email = data['email']
+    if email is None:
+        return jsonify({'error': 'Email is required'}), 400
+    
+    user = UserModel.query.filter_by(email=email).first()
+    if user:
+        user_id = user.id
+        return jsonify({'user_id': user_id}), 200
+    else:
+        return jsonify({'error': 'Invalid email address'}), 404
+    
+    
+@app.route('/api/reset_password', methods=['POST'])
+def reset_password():
+    data = get_data()
+    user_id = data['user_id']
+    user = UserModel.query.filter_by(id=user_id).first()
+    if user is None:
+        return jsonify({'error': 'User not found based on given id'}), 404
+    
+    new_password = data['new_password']
+    confirm_password = data['confirm_password']
+
+    if new_password != confirm_password:
+        return jsonify({'message': 'The passwords do not match.'}), 400
+    else:
+        user.set_password(new_password)
+        db.session.commit()
+        return jsonify({'message': 'Password updated successfully'}), 200
+
+
 ################ USER MODEL RELATED ROUTES ###############  
 @app.route('/api/current_user')
 def get_current_user_info():
