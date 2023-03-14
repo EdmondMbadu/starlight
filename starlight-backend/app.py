@@ -3,7 +3,7 @@ import os
 from flask import Flask, flash, g, jsonify, redirect, render_template, request, session
 from flask_cors import CORS
 from flask_login import current_user, login_required, logout_user
-from models import db, login, UserModel, PostModel, Like
+from models import db, login, UserModel, PostModel, Like, Comment
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager, create_access_token
 
@@ -194,7 +194,7 @@ def create_new_post():
         
         return jsonify({'message': 'Post was added successfully', 'post': new_post.serialize()}), 200
     else:
-        return jsonify({'error': 'User does not exit to create new post'}), 404
+        return jsonify({'error': 'User does not exist to create new post'}), 404
         
             
 @app.route('/api/posts', methods=['GET'])
@@ -270,6 +270,31 @@ def get_post_likes(post_id):
     return jsonify(like_list)
 
 
+#comment on post
+@app.route('/api/posts/<int:post_id>/comments', methods=['GET','POST'])
+def comments(post_id):
+    if request.method == 'GET':
+        comments = Comment.query.filter_by(post_id=post_id).all()
+        comments_list = [comment.serialize() for comment in comments]
+        return jsonify(comments_list)
+    
+    elif request.method == 'POST':
+        data = get_data()
+        user = get_current_user()
+        if user:
+            author_id = user.id
+            author_name = user.get_full_name()
+            body = data['body']
+            
+            comment = Comment(post_id= post_id, author_id=author_id, author_name=author_name, body=body)
+            db.session.add(comment)
+            db.session.commit()
+            return jsonify(comment.serialize()), 200
+        else:
+            return jsonify({'error': 'User does not exist to comment'}), 404
+    
+  
+#delete post
 @app.route('/api/delete-post/<int:post_id>', methods=["DELETE"])
 def delete_post(post_id):
     post = PostModel.query.filter_by(id=post_id).first()

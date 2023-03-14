@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 
 import { Post } from '../models/post';
 import { Like } from '../models/like';
+import { Comment } from '../models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,15 @@ export class PostService {
 
   getPostLikes(postId:number): Observable<Like[]> {
     return this.http.get<Like[]>(`/api/posts/${postId}/likes`);
+  }
+
+  commentPost(postId:number, body:string) {
+    // const body = { action: action };
+    // return this.http.post(`${this.postsApiUrl}/${postId}/comment`, body);
+    return this.http.post(`/api/posts/${postId}/comments`, {body}); 
+  }
+
+  getPostComments(postId:number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`/api/posts/${postId}/comments`);
   }
 }

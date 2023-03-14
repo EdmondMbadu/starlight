@@ -72,7 +72,29 @@ class Like(db.Model):
             'post_id': self.post_id,
         }
     
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
+    post = db.relationship('PostModel', backref=backref('posts', lazy=True))
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    author_name = db.Column(db.String(255), nullable=False)
+    author = db.relationship('UserModel', backref=backref('user_author', lazy=True))
+    body = db.Column(db.String(500), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
+    def serialize(self):
+        return {
+            'id': self.id,
+            'author_id': self.author_id,
+            'author_name': self.author_name,
+            'post_id': self.post_id,
+            'body': self.body,
+            'created_at': self.created_at,
+        }
+  
+
 @login.user_loader
 def load_user(id):
     return UserModel.query.get(int(id))

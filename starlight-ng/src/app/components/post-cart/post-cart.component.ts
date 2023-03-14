@@ -1,13 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Post } from 'src/app/models/post';
-import { User } from 'src/app/models/user';
-import { DataService } from 'src/app/services/data.service';
-import { UserService } from 'src/app/services/user.service';
-import { PostService } from 'src/app/services/post.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+// classes
+import { Post } from 'src/app/models/post';
+import { User } from 'src/app/models/user';
+import { Comment } from 'src/app/models/comment';
+// services
+import { UserService } from 'src/app/services/user.service';
+import { PostService } from 'src/app/services/post.service';
 
 
 @Component({
@@ -25,10 +27,13 @@ export class PostCartComponent {
   seeComments:boolean=false;
   user: User;
   posts: Post[];
+  comments: Comment[];
+  newComment: Comment;
   post: Post;
+  body:string = "";
   
+    
   constructor(
-    private data: DataService, 
     private dialogRef : MatDialog,
     private userService: UserService, 
     private postService: PostService,
@@ -39,6 +44,8 @@ export class PostCartComponent {
     this.post= new Post();
     this.user = new User();
     this.posts = [];
+    this.comments = [];
+    this.newComment = new Comment();
     this.currentPost = new Post();
   }
 
@@ -46,9 +53,12 @@ export class PostCartComponent {
     this.getUser();
 
     this.getPostLikes();
+    this.getPostComments();
 
     console.log("currentPost created_at = " + this.currentPost.created_at);
     this.currentPost.created_at = this.datePipe.transform(this.currentPost.created_at, 'MM/dd/yyyy');
+    // this.newComment.created_at = this.datePipe.transform(this.newComment.created_at, 'MM/dd/yy HH:mm');
+
   }
 
   getUser(): void {
@@ -76,6 +86,13 @@ export class PostCartComponent {
     )
   }
 
+  getPostComments():void {
+    this.postService.getPostComments(this.currentPost.id).subscribe(comments => {
+      console.log(comments);
+      this.comments = comments;
+    });
+  }
+
   deletePost(post: Post) {
     const dialog = this.dialogRef.open(PopUpComponent);
     dialog.afterClosed().subscribe(result => {
@@ -94,8 +111,22 @@ export class PostCartComponent {
     });
   }
 
-  showComments(event:any){
+  showComments(){
     this.seeComments=!this.seeComments;
+  }
+
+  submitComment() {
+    console.log('Submitting comment');
+    this.postService.commentPost(this.currentPost.id, this.newComment.body).subscribe(
+      (comment) => {
+        console.log(comment);
+        this.comments.push(comment);
+        // this.postService.getPostComments(this.currentPost.id).subscribe(comments => this.comments = comments);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
   toggleLike() {
