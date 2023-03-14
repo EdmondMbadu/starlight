@@ -106,19 +106,11 @@ def update_profile():
     data = get_data()
     first = data['first']
     last = data['last']
-    # password = data['password']
 
-    # if 'first' in data:
-    #     user.first = data['first']
-    # if 'last' in data:
-    #     user.last = data['last']
+    # Check if new password has a value
     if 'password' in data:
-        # user.set_password(data['password'])
         password = data['password']
-    
-    if 'password' in data:
         user.set_password(password)
-
     else:
         if first == user.first and last == user.last:
             return jsonify({'message': 'Nothing was changed.'})
@@ -136,9 +128,7 @@ def update_profile():
 @app.route('/api/users', methods=['GET'])
 def get_all_users():
     users = UserModel.query.all()
-    user_list = []
-    for user in users:
-        user_list.append(user.serialize())
+    user_list = [user.serialize() for user in users]
     return jsonify(user_list)
     
 
@@ -155,9 +145,8 @@ def get_user_by_id(id):
 @app.route('/api/new-post', methods=['POST'])
 def create_new_post():
     data = get_data()
-    user_id = session.get('user_id')
-    if user_id:
-        user = UserModel.query.filter_by(id=user_id).first()
+    user = get_current_user()
+    if user:
         author_id = user.id
         author_name = user.get_full_name()
         title = data['title']
@@ -189,7 +178,7 @@ def get_all_posts():
 
 @app.route('/api/user-posts', methods=['GET'])
 def get_user_posts():
-    user_id = session.get('user_id')
+    user_id = get_current_user_id()
     if user_id:
         posts = PostModel.query.filter_by(author_id=user_id)
         post_list = [post.serialize() for post in posts]
@@ -221,7 +210,7 @@ def like_post(post_id):
         db.session.commit()
         
         # Decrement the number of likes for that post
-        post = PostModel.query.fi(post_id)
+        post = PostModel.query.get(post_id)
         post.likes = Like.query.filter_by(post_id=post_id).count()
         db.session.commit()
     
@@ -243,10 +232,7 @@ def like_post(post_id):
 @app.route('/api/posts/<int:post_id>/likes', methods=['GET'])
 def get_post_likes(post_id):
     likes = Like.query.filter_by(post_id=post_id).all()
-    like_list = []
-    for like in likes:
-        like_list.append(like.serialize()
-                         )
+    like_list = [like.serialize() for like in likes]
     return jsonify(like_list)
 
 
@@ -256,7 +242,7 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
  
-    return jsonify("Post was deleted"),200
+    return jsonify("Post was deleted"), 200
 
 
 # running the server

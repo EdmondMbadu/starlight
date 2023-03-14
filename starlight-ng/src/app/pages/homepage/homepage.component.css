@@ -4,6 +4,11 @@ body::before{
     height:60px;
 
 }
+
+.container {
+    padding-top: 3rem;
+}
+
 @media(min-width:768px){
     .news-input{
         width: 50%;
@@ -13,14 +18,9 @@ body::before{
 h1{
     font-size: 2rem;
 }
+
 .btn-success{
     border-radius: 2rem;;
-}
-.form-control{
-    border-radius: 2rem;;
-}
-.btn-dark{
-    border-radius: 2rem;
 }
 
 .main-vid{

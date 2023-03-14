@@ -4,12 +4,12 @@
         <h4 class="post-author">{{currentPost.author_name}}</h4>
         <h5 class="post-date">{{currentPost.created_at}}</h5>
       </div>
+
       <div class="post-content">
         <h3 class="post-title">{{currentPost.title}}</h3>
-        <p class="cart-text">{{currentPost.content}}     
-        </p>
-     
+        <p class="cart-text">{{currentPost.content}}</p>
       </div>
+      
       <div class="post-stats">
         <!-- like button -->
         <a (click)="toggleLike()">
@@ -29,7 +29,7 @@
         </a>
         
         <!-- community label -->
-        <a href="/homepage-posts">
+        <a [routerLink]="['/communities', currentPost.label]">
           <h3 class="post-label"> #{{currentPost.label}}</h3>
         </a>
       </div>

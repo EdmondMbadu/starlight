@@ -68,6 +68,7 @@ a{
         width: 70%;
     }
 }
+
 .post-author {
     float: left;
     font-weight: 500;
@@ -146,7 +147,7 @@ img {
 }
 
             /* COMMENT BOX */
-.btn {
+.submit-comment {
     padding: .5rem;
     float: right;
     font-size: 14px;
@@ -157,7 +158,7 @@ img {
     margin: .5rem;
 }
 
-.btn:hover {
+.submit-comment:hover {
     background-color: rgb(12, 97, 33);
 }
 

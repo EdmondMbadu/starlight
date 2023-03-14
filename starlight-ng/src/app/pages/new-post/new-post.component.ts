@@ -14,46 +14,41 @@ import { UserService } from 'src/app/services/user.service';
 
 
 export class NewPostComponent {
-  public postList: Post[];
-  commuunityList:string[];
-  public post:Post;
+
+  communityList:string[];
+
   user:User;
   title:string="";
-  label:string="";
-  date:string="";
-  author:string="";
   content:string="";
-  author_id:number = 7;
-
-  posts: Post[] = [];
-  newPost:Post = new Post();
+  posts: Post[];
+  newPost:Post;
  
 
   message:string="";
   
-  constructor(private router:Router, private data: DataService, private postService:PostService, private userService: UserService){
-    this.post= new Post();
+  constructor(
+    private router:Router, 
+    private data: DataService, 
+    private postService:PostService, 
+    private userService: UserService
+  ){
+
     this.user= new User();
-    this.postList=[this.post];
-    this.commuunityList= this.data.communityList;
+    this.newPost = new Post();
+    this.posts = [];
+    this.communityList= this.data.communityList;
 
     // this.newPost.date = this.getCurrentDate();
   }
 
   ngOnInit(){
     this.getUser();
-
-    this.data.currentListPosts.subscribe(
-      pList=>this.postList= pList
-    );
-
   }
   
   getUser(): void {
     this.userService.getUserData().subscribe(
       (data) => {
         this.user = data;
-        console.log("getUserData return: ", this.user);
       }
     )
 	}
@@ -69,27 +64,12 @@ export class NewPostComponent {
   }
 
   createNewPost() {
-    // this.postService.makeNewPost(this.title, this.content, this.label, this.likes, this.author_id)
-    // this.newPost.author_id = this.user.id;
-    
-
     this.postService.addPost(this.newPost)
     .subscribe(
       (data) => {
         console.log("Post created = " + data);
         console.log("newPost.author name = " + this.newPost.author_name);
         this.posts.push(this.newPost);
-        // this.newPost = new Post();
-
-        // this.post.title = this.title;
-        // this.post.author = "Stef";
-        // // this.post.author_id = this.author_id;
-        // this.post.content = this.content;
-        // this.post.label = this.label;
-        // this.post.likes = this.likes;
-        // this.post.date = this.getCurrentDate();
-        // this.postList.unshift(this.post);
-        // this.data.updatePostList(this.postList);
         this.router.navigate(['homepage-posts']);
       },
       (error) => {
@@ -99,17 +79,15 @@ export class NewPostComponent {
   }
 
 
-  getCurrentDate(): string{
-  const date = new Date();
+  getCurrentDate(): string {
+    const date = new Date();
 
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${month}/${day}/${year}`;
 
-  // This arrangement can be altered based on how we want the date's format to appear.
-  let currentDate = `${month}/${day}/${year}`;
-
-  return currentDate;
-
+    return currentDate;
   }
 }

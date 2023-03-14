@@ -11,10 +11,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginComponent {
   email: string = "";
   password: string = "";
-  error: string = "";
   errorMessage: string ="";
 
-  constructor (private router:Router, private authService: AuthService, private http: HttpClient){}
+  constructor (
+    private router:Router, 
+    private authService: AuthService, 
+    private http: HttpClient
+  ){}
 
   ngOnInit(): void {
     console.log(this.authService.test());

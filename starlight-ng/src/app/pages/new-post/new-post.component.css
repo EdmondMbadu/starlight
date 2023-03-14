@@ -1,19 +1,12 @@
 
 
 .form-control{
-
   margin: auto;
   border: 2px solid;
   border-radius: 2rem;
   font-size : 1.3em;
   font-family : "Open Sans", sans-serif;
   width: 60%;
-
-}
-.title{
-  text-align: center;
-  margin:auto;
-  width: 20%;;
 }
 
 .container{
@@ -49,33 +42,8 @@
   font-size: medium;
 }
 
-h1 {
-  padding: 40px; 
-  text-align: center; 
-  font-size: 1.5em;
-}
-
-li a {
-  text-decoration : none; 
-  color : #2d2f31;
-}
-
-.post-b {
-  margin-right: 3rem;
-}
-
-.btn {
-  padding: 0px;
-  font-weight: 300;
-  font-size: 14px;
-  height: 2.5rem;
+.btn-signin {
   width: 12rem;
-  border-radius: 2rem;
-  border: none;
   margin-right: 3rem;
   margin-top: 1rem;
-}
-
-.btn:hover {
-  background-color: rgb(12, 97, 33);
 }

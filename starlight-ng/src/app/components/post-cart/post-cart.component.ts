@@ -16,25 +16,20 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./post-cart.component.css']
 })
 export class PostCartComponent {
+
+  @Input() currentPost: Post;
+
   title: string = '';
-  isActive: boolean = false;
   isLiked:boolean = false;
   likes: number =0;
   seeComments:boolean=false;
   user: User;
   posts: Post[];
-
-  @Input() currentPost: Post;
-
-  toDelete:boolean= false;
-  communityType:string="Essay";
-  titleToDelete:string="";
   post: Post;
-  public postList: Post[];
   
   constructor(
     private data: DataService, 
-    private dialogRef : MatDialog, 
+    private dialogRef : MatDialog,
     private userService: UserService, 
     private postService: PostService,
     private router: Router,
@@ -44,7 +39,6 @@ export class PostCartComponent {
     this.post= new Post();
     this.user = new User();
     this.posts = [];
-    this.postList=[this.post];
     this.currentPost = new Post();
   }
 
@@ -54,24 +48,13 @@ export class PostCartComponent {
     this.getPostLikes();
 
     console.log("currentPost created_at = " + this.currentPost.created_at);
-    this.currentPost.created_at = this.datePipe.transform(this.currentPost.created_at, 'MM/dd/yyyy')
-    
-
-    console.log("current post id = " + this.currentPost.author_name);
-    this.data.currentCommunityTag.subscribe(
-      community=>this.communityType= community
-    );
-
-    this.data.currentListPosts.subscribe(
-      pList=> this.postList= pList
-    );
+    this.currentPost.created_at = this.datePipe.transform(this.currentPost.created_at, 'MM/dd/yyyy');
   }
 
   getUser(): void {
     this.userService.getUserData().subscribe(
       (data) => {
         this.user = data;
-        console.log("getUserData return: ", this.user);
       }
     )
 	}
@@ -81,7 +64,6 @@ export class PostCartComponent {
       const postId = params['id'];
       this.postService.getPost(postId).subscribe(post => {
         this.currentPost = post;
-        // this.isLiked = this.currentPost.is_liked;
       });
     });
   }
@@ -92,18 +74,6 @@ export class PostCartComponent {
         this.isLiked = likes.some(like => like.user_id === this.user.id);
       }
     )
-  }
-
-  // getPosts(): void {
-  //   this.postService.getAllPosts()
-  //   .subscribe( posts => this.posts = posts);
-  // }
-
-  openDialog(event: any, title?:string){
-    // console.log("The current title is in dialog", this.currentPost.title);
-    this.dialogRef.open(PopUpComponent,{
-    });
-    this.data.deleteTitle(title!);
   }
 
   deletePost(post: Post) {
@@ -118,24 +88,17 @@ export class PostCartComponent {
           (error) => {
             console.log("Error deleting post ", error);
           }
-          );
+        );
+        window.location.reload();
       }
     });
-    this.router.navigate(['homepage-posts']);
   }
-
-  counter: number = 0;
 
   showComments(event:any){
     this.seeComments=!this.seeComments;
   }
-  incrementCounter(event:any){
-    this.likes += (this.isActive) ? -1 : 1;
-		this.isActive = !this.isActive;
-  }
 
   toggleLike() {
-    // const likeAction = this.isLiked ? 'unlike' : 'like';
     if(this.isLiked){
       // Unlike the post
       this.postService.likePost(this.currentPost.id).subscribe(
@@ -155,9 +118,5 @@ export class PostCartComponent {
         }
       );
     }
-    // this.postService.likePost(this.currentPost.id, likeAction).subscribe(
-    //   (response) => {
-    //   this.currentPost.likes += (this.isActive) ? -1 : 1;
-    // });
   }
 }

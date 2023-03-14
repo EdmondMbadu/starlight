@@ -51,7 +51,7 @@ const routes: Routes = [
   //   canActivate: [AuthGuard]
   // },
   {
-    path:'communities/:label',
+    path:'community/:label',
     component: CommunityLabelComponent,
     canActivate: [AuthGuard]
   },

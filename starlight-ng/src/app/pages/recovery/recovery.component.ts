@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./recovery.component.css']
 })
 export class RecoveryComponent {
+  errorMessage:string = "";
+  
   constructor(private router: Router) {}
   
   recover(event: any) {
