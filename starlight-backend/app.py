@@ -15,7 +15,7 @@ app.config['JWT_SECRET_KEY'] = 's3cr3!#&7-21jhF'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///starlight.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}})
+CORS(app)
 
 db.init_app(app)
 migrate = Migrate(app, db, render_as_batch=True)
