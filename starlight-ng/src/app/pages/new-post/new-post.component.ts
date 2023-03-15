@@ -22,9 +22,7 @@ export class NewPostComponent {
   content:string="";
   posts: Post[];
   newPost:Post;
- 
-
-  message:string="";
+  errorMessage:string = "";
   
   constructor(
     private router:Router, 
@@ -64,6 +62,11 @@ export class NewPostComponent {
   }
 
   createNewPost() {
+    if(this.newPost.label == null){
+      this.errorMessage = "You cannot post without selecting a label.";
+      return;
+    }
+    
     this.postService.addPost(this.newPost)
     .subscribe(
       (data) => {
