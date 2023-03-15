@@ -12,7 +12,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__) # name for the Flask app (refer to output)
 app.config['SECRET_KEY'] = 'xyz##s3crwtK*'
 app.config['JWT_SECRET_KEY'] = 's3cr3!#&7-21jhF'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'instance/starlight.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///starlight.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}})
