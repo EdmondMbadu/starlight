@@ -122,6 +122,7 @@ export class PostCartComponent {
         console.log(comment);
         this.comments.push(comment);
         // this.postService.getPostComments(this.currentPost.id).subscribe(comments => this.comments = comments);
+        this.newComment.body = "";
       },
       (error) => {
         console.log(error);
