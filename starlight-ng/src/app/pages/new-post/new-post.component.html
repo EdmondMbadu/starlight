@@ -2,6 +2,7 @@
 
 <div class="container">
   <form (ngSubmit)="createNewPost()" action="">
+    <div class="error-message">{{ errorMessage }}</div> <br>
     <div class="row">
       <div class="col-md-6">
         <input id="input-title" type="text" [(ngModel)]="newPost.title" name="title" placeholder="TITLE"> 
