@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 // classes
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 // services
 import { UserService } from 'src/app/services/user.service';
 
@@ -20,7 +21,7 @@ export class UpdateProfileComponent implements OnInit {
 Update: any;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {
+  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService, private authService: AuthService) {
     this.user = new User();
   }
 
@@ -30,7 +31,8 @@ Update: any;
 
 	// getUser(userId: number): void {
 	getUser(): void {
-    this.userService.getUserData().subscribe(
+    const uid = Number(this.authService.getUid());
+    this.userService.getUserById(uid).subscribe(
       (data) => {
         // this.user = data;
         this.user.email = data.email;

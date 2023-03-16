@@ -29,6 +29,8 @@ export class LoginComponent {
       (response: any) => {
         console.log(response);
         const token = response.token;
+        const uid= response.uid;
+        this.authService.setUid(uid);
         this.authService.setToken(token);
         this.router.navigate(['homepage-posts']);
       },

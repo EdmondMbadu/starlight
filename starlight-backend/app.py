@@ -1,8 +1,12 @@
 # app.py
 import os
+import datetime
+import flask
+# from flask.ext.session import Session
+from flask_session import Session
 from flask import Flask, flash, g, jsonify, redirect, render_template, request, session
-from flask_cors import CORS
-from flask_login import current_user, login_required, logout_user
+from flask_cors import CORS, cross_origin
+from flask_login import current_user, login_required, login_user, logout_user
 from models import db, login, UserModel, PostModel, Like, Comment
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager, create_access_token
@@ -14,8 +18,15 @@ app.config['SECRET_KEY'] = 'xyz##s3crwtK*'
 app.config['JWT_SECRET_KEY'] = 's3cr3!#&7-21jhF'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///starlight.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# UID=None
 
-CORS(app)
+app.config['SESSION_TYPE'] = 'filesystem'
+# app.config['SESSION_FILE_DIR'] = os.path.abspath('/Users/edmondmbadu/repo/starlight/starlight-backend/')
+# /Users/edmondmbadu/repo/starlight/starlight-backend
+app.permanent_session_lifetime = datetime.timedelta(minutes=30)
+Session(app)
+CORS(app, supports_credentials=True)
+# CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}})
 
 db.init_app(app)
 migrate = Migrate(app, db, render_as_batch=True)
@@ -48,8 +59,16 @@ def login():
     user = UserModel.query.filter_by(email=email).first()
     if user and user.check_password(password):
         session['user_id'] = user.id
+        print("user id ...", user.id)
+        # login_user(user, force=True)
+        # print("user is auth?", current_user.get_id())
+
         access_token = create_access_token(identity=email)
-        return jsonify({'message': 'Login is successfull', 'token': access_token}), 200
+        global UID
+        UID= user.id
+        uid = str(user.id)
+        print("the session id is and user id are : ", uid, user.id)
+        return jsonify({'user': user.id, 'uid':uid, 'message': 'Login is successfull', 'token': access_token}), 200
     else:
         return jsonify({'error': 'Invalid email or password.'}), 401
 
@@ -78,12 +97,14 @@ def data():
     if 'user_id' in session:
         return jsonify({'data': 'The user is logged in'})
     else:
-        return jsonify({'error': 'Not authorized, user not logged in'})
+        return jsonify({'error': 'Not authorized, user not logged in'}),404
 
 
 @app.route('/api/logout')
 def logout():
+    print("the user id", session.get('user_id'))
     session.pop('user_id', None)
+    UID = None
     return jsonify({'message': 'Logged out successfully'}), 200
 
 
@@ -124,6 +145,8 @@ def reset_password():
 ################ USER MODEL RELATED ROUTES ###############  
 @app.route('/api/current_user')
 def get_current_user_info():
+    # user_id = request.get_json()['uid']
+    # print("user id now", user_id)
     user = get_current_user()
     if user:
         return jsonify(user.serialize())
@@ -133,7 +156,7 @@ def get_current_user_info():
 
 @app.route('/api/update-profile', methods=['PUT'])
 def update_profile():
-    user = get_current_user()    
+    user = UserModel.query.filter_by(id=UID).first()
     if user is None:
         return jsonify({'error': 'User not found'}), 404
     
@@ -179,7 +202,9 @@ def get_user_by_id(id):
 @app.route('/api/new-post', methods=['POST'])
 def create_new_post():
     data = get_data()
-    user = get_current_user()
+    print("UID from new post", UID)
+    user = UserModel.query.filter_by(id=UID).first()
+    # print("current user auth... from new post?", current_user.is_authenticated)
     if user:
         author_id = user.id
         author_name = user.get_full_name()
@@ -212,7 +237,7 @@ def get_all_posts():
 
 @app.route('/api/user-posts', methods=['GET'])
 def get_user_posts():
-    user_id = get_current_user_id()
+    user_id = UID
     if user_id:
         posts = PostModel.query.filter_by(author_id=user_id)
         post_list = [post.serialize() for post in posts]
@@ -235,7 +260,7 @@ def get_post_by_id(post_id):
 #liking a post
 @app.route('/api/posts/<int:post_id>/like', methods=['POST'])
 def like_post(post_id):
-    user_id = get_current_user_id()
+    user_id = UID
     like = Like.query.filter_by(post_id=post_id, user_id=user_id).first()
     
     if like:
@@ -280,7 +305,7 @@ def comments(post_id):
     
     elif request.method == 'POST':
         data = get_data()
-        user = get_current_user()
+        user = UserModel.query.filter_by(id=UID).first()
         if user:
             author_id = user.id
             author_name = user.get_full_name()
@@ -296,6 +321,7 @@ def comments(post_id):
   
 #delete post
 @app.route('/api/delete-post/<int:post_id>', methods=["DELETE"])
+@cross_origin(supports_credentials=True)
 def delete_post(post_id):
     post = PostModel.query.filter_by(id=post_id).first()
     db.session.delete(post)
@@ -306,4 +332,4 @@ def delete_post(post_id):
 
 # running the server
 if __name__ == '__main__':
-    app.run(host='localhost', port=5000, debug=True) # to allow for debugging and auto-reload
+    app.run(host='localhost', port=8080, debug=True) # to allow for debugging and auto-reload

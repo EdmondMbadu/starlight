@@ -14,6 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+   private BASE_URL: string = 'http://localhost:8080';
   private apiUrl = 'http://localhost:5000/api/users';
   private updateUrl = 'http://localhost:5000/api/update-profile';
   
@@ -22,12 +23,12 @@ export class UserService {
 
    /** GET users from the server */
    getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
+    return this.http.get<User[]>(`${this.BASE_URL}/api/users`);
   }
   
   /** GET user by id. Will 404 if id not found */
   getUserById(id: number): Observable<User> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.BASE_URL}/api/users/${id}`;
     // return this.http.get<User>(url);
     return this.http.get<User>(url);
   }
@@ -35,7 +36,7 @@ export class UserService {
 
   getUserData(): Observable<User> {
     // Pass the session ID in the withCredentials option
-    return this.http.get<User>('/api/current_user', { withCredentials: true });
+    return this.http.get<User>(`${this.BASE_URL}/api/current_user`, { withCredentials: true });
     // { withCredentials: true }
   }
   /** PUT: update the user on the server */
@@ -43,7 +44,7 @@ export class UserService {
     // const url = `${this.apiUrl}/${user.id}`
     // return this.http.put(this.userUrl + '/update', user, httpOptions);
     // return this.http.put<User>(url, user, httpOptions);
-    return this.http.put<User>('/api/update-profile', user, httpOptions);
+    return this.http.put<User>(`${this.BASE_URL}/api/update-profile`, user, httpOptions);
   
   }
 }

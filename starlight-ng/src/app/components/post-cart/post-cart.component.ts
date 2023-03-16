@@ -10,6 +10,7 @@ import { Comment } from 'src/app/models/comment';
 // services
 import { UserService } from 'src/app/services/user.service';
 import { PostService } from 'src/app/services/post.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -39,7 +40,8 @@ export class PostCartComponent {
     private postService: PostService,
     private router: Router,
     private route: ActivatedRoute,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private authService: AuthService
   ) {
     this.post= new Post();
     this.user = new User();
@@ -62,7 +64,8 @@ export class PostCartComponent {
   }
 
   getUser(): void {
-    this.userService.getUserData().subscribe(
+    const uid = Number(this.authService.getUid());
+    this.userService.getUserById(uid).subscribe(
       (data) => {
         this.user = data;
       }
